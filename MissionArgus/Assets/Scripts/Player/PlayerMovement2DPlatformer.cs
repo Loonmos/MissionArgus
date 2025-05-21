@@ -1,15 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-enum DIRECTION
-{
-    RIGHT,
-    LEFT,
-    UP,
-    DOWN,
-    NONE
-}
 public class PlayerMovement2DPlatformer : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -22,19 +15,22 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
     public Transform groundCheckLeft1;
     public Transform groundCheckLeft2;
-        
+
     public Transform groundCheckRight1;
     public Transform groundCheckRight2;
 
     public LayerMask groundLayer;
-    [SerializeField] DIRECTION holdDirection, groundedDirection, prevGroundedDirection, prevInputDirection;
 
-    [SerializeField] float horizontalInput;
-    [SerializeField] float verticalInput;
-    [SerializeField] bool usingPreviousInput;
-
+    private float horizontalDown;
+    private float horizontalUp;
+    private float verticalRight;
+    private float verticalLeft;
     public float speed = 0.03f;
     public float jumpForce = 0.06f;
+    [SerializeField] private bool isGroundedUp;
+    [SerializeField] private bool isGroundedDown;
+    [SerializeField] private bool isGroundedLeft;
+    [SerializeField] private bool isGroundedRight;
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool doubleGrounded;
     public float groundDistance = 0.15f;
@@ -63,33 +59,28 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
     public AudioSource jumpSound;
 
     public GameObject guideTextD;
+    public TextMeshProUGUI textD;
     public GameObject guideTextA;
-    bool respawning, resettingSpeed;
-
-    private void Start()
-    {
-        groundedDirection = DIRECTION.DOWN;
-    }
+    public TextMeshProUGUI textA;
 
     void Update()
     {
-        GetInputs();
         CheckGround();
         ChangeGravity();
         FlipSprite();
         Animations();
 
-        //horizontalDown = Input.GetAxisRaw("HorizontalDown");
-        //horizontalUp = Input.GetAxisRaw("HorizontalUp");
-        //verticalRight = Input.GetAxisRaw("VerticalRight");
-        //verticalLeft = Input.GetAxisRaw("VerticalLeft");
+        horizontalDown = Input.GetAxisRaw("HorizontalDown");
+        horizontalUp = Input.GetAxisRaw("HorizontalUp");
+        verticalRight = Input.GetAxisRaw("VerticalRight");
+        verticalLeft = Input.GetAxisRaw("VerticalLeft");
 
         if (Input.GetKeyDown(KeyCode.Space) && unlockedJump)
         {
             Jump();
         }
 
-        if (groundedDirection != DIRECTION.NONE)
+        if (isGroundedDown || isGroundedLeft || isGroundedRight || isGroundedUp)
         {
             isGrounded = true;
             if ((Input.GetKey("a") || Input.GetKey("d")) && !walkSounds.playing)
@@ -107,8 +98,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             walkSounds.Stop();
         }
 
-        if (groundedDirection == DIRECTION.DOWN && groundedDirection == DIRECTION.DOWN || groundedDirection == DIRECTION.DOWN && groundedDirection == DIRECTION.RIGHT 
-            || groundedDirection == DIRECTION.UP && groundedDirection == DIRECTION.LEFT || groundedDirection == DIRECTION.UP && groundedDirection == DIRECTION.RIGHT)
+        if (isGroundedDown && isGroundedLeft || isGroundedDown && isGroundedRight || isGroundedUp && isGroundedLeft || isGroundedUp && isGroundedRight)
         {
             doubleGrounded = true;
         }
@@ -118,165 +108,57 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
         }
     }
 
-    public IEnumerator LowerSpeedTemporarily()
-    {
-        if (!resettingSpeed)
-        {
-            resettingSpeed = true;
-            float prevSpeed = speed;
-            speed = 0;
-            yield return new WaitForSeconds(0.5f);
-            speed = prevSpeed;
-            resettingSpeed = false;
-        }
-    }
-
-    public void ResetMovement()
-    {
-        usingPreviousInput = false;
-        prevInputDirection = DIRECTION.NONE;
-        prevGroundedDirection = DIRECTION.DOWN;
-        holdDirection = DIRECTION.NONE;
-        horizontalInput = 0;
-        verticalInput = 0;
-        respawning = true;
-    }
-
-    void GetInputs()
-    {
-        //MAKE IT SO IT CONTINUES USING THE INPUT FROM BEING ON THE OTHER WALL GALAXY STYLE
-        if(usingPreviousInput)
-        {
-            if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
-            {
-                ResetMovement();
-            }
-
-            if(groundedDirection == DIRECTION.LEFT)
-            {
-                if(prevGroundedDirection == DIRECTION.UP)
-                {
-                    if (prevInputDirection == DIRECTION.LEFT) verticalInput = -1; holdDirection = DIRECTION.DOWN;
-                }
-                else if (prevGroundedDirection == DIRECTION.DOWN)
-                {
-                    if (prevInputDirection == DIRECTION.LEFT) verticalInput = 1; holdDirection = DIRECTION.UP;
-                }
-            }
-            else if (groundedDirection == DIRECTION.RIGHT)
-            {
-                if (prevGroundedDirection == DIRECTION.UP)
-                {
-                    if (prevInputDirection == DIRECTION.RIGHT) verticalInput = -1; holdDirection = DIRECTION.DOWN;
-                }
-                else if (prevGroundedDirection == DIRECTION.DOWN)
-                {
-                    if (prevInputDirection == DIRECTION.RIGHT) verticalInput = 1; holdDirection = DIRECTION.UP;
-                }
-            }
-            else if (groundedDirection == DIRECTION.DOWN)
-            {
-                if (prevGroundedDirection == DIRECTION.LEFT)
-                {
-                    if (prevInputDirection == DIRECTION.DOWN) horizontalInput = 1; holdDirection = DIRECTION.RIGHT;
-                }
-                else if (prevGroundedDirection == DIRECTION.RIGHT)
-                {
-                    if (prevInputDirection == DIRECTION.DOWN) horizontalInput = -1; holdDirection = DIRECTION.LEFT;
-                }
-            }
-            else if (groundedDirection == DIRECTION.UP)
-            {
-                if (prevGroundedDirection == DIRECTION.LEFT)
-                {
-                    if (prevInputDirection == DIRECTION.UP) horizontalInput = 1; holdDirection = DIRECTION.RIGHT;
-                }
-                else if (prevGroundedDirection == DIRECTION.RIGHT)
-                {
-                    if (prevInputDirection == DIRECTION.UP) horizontalInput = -1; holdDirection = DIRECTION.LEFT;
-                }
-            }
-
-            return;
-        }
-
-        if (groundedDirection == DIRECTION.DOWN || groundedDirection == DIRECTION.UP)
-        {
-            //if (Input.GetKey(KeyCode.W)) { holdDirection = HOLD_DIRECTION.RIGHT; }
-            //else if (Input.GetKey(KeyCode.S)) { holdDirection = HOLD_DIRECTION.LEFT; }
-            if (Input.GetKey(KeyCode.A)) { holdDirection = DIRECTION.LEFT; }
-            else if (Input.GetKey(KeyCode.D)) { holdDirection = DIRECTION.RIGHT; }
-            else holdDirection = DIRECTION.NONE;
-
-            if(holdDirection == DIRECTION.LEFT) { horizontalInput = -1; }
-            else if(holdDirection == DIRECTION.RIGHT) { horizontalInput = 1;  }
-            else if(holdDirection == DIRECTION.NONE) { horizontalInput = 0;  }
-        }
-        if(groundedDirection == DIRECTION.LEFT || groundedDirection == DIRECTION.RIGHT)
-        {
-            if (Input.GetKey(KeyCode.W)) { holdDirection = DIRECTION.UP; }
-            else if (Input.GetKey(KeyCode.S)) { holdDirection = DIRECTION.DOWN; }
-            //else if (Input.GetKey(KeyCode.A)) { holdDirection = HOLD_DIRECTION.UP; }
-            //else if (Input.GetKey(KeyCode.D)) { holdDirection = HOLD_DIRECTION.DOWN; }
-            else holdDirection = DIRECTION.NONE;
-
-            if(holdDirection == DIRECTION.DOWN) { verticalInput = -1; }
-            else if(holdDirection == DIRECTION.UP) { verticalInput = 1; }
-            else if(holdDirection == DIRECTION.NONE) { verticalInput = 0; }
-        }
-    }
-
     private void FixedUpdate() // movement
     {
-        if (groundedDirection == DIRECTION.DOWN)
+        if (isGroundedDown)
         {
             health = playerHealth.currentHealth;
             if (doubleGrounded || isJumping)
             {
-                rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+                rb.velocity = new Vector2(horizontalDown * speed, rb.velocity.y);
             }
             else
             {
-                rb.velocity = new Vector2(horizontalInput * speed, 0);
+                rb.velocity = new Vector2(horizontalDown * speed, 0);
             }
         }
 
-        if (groundedDirection == DIRECTION.UP)
+        if (isGroundedUp)
         {
             health = playerHealth.currentHealth;
             if (doubleGrounded || isJumping)
             {
-                rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+                rb.velocity = new Vector2(horizontalUp * speed, rb.velocity.y);
             }
             else
             {
-                rb.velocity = new Vector2(horizontalInput * speed, 0);
+                rb.velocity = new Vector2(horizontalUp * speed, 0);
             }
         }
 
-        if (groundedDirection == DIRECTION.RIGHT)
+        if (isGroundedRight)
         {
             health = playerHealth.currentHealth;
             if (doubleGrounded || isJumping)
             {
-                rb.velocity = new Vector2(rb.velocity.x, verticalInput * speed);
+                rb.velocity = new Vector2(rb.velocity.x, verticalRight * speed);
             }
             else
             {
-                rb.velocity = new Vector2(0, verticalInput * speed);
+                rb.velocity = new Vector2(0, verticalRight * speed);
             }
         }
 
-        if (groundedDirection == DIRECTION.LEFT)
+        if (isGroundedLeft)
         {
             health = playerHealth.currentHealth;
             if (doubleGrounded || isJumping)
             {
-                rb.velocity = new Vector2(rb.velocity.x, verticalInput * speed);
+                rb.velocity = new Vector2(rb.velocity.x, verticalLeft * speed);
             }
             else
             {
-                rb.velocity = new Vector2(0, verticalInput * speed);
+                rb.velocity = new Vector2(0, verticalLeft * speed);
 
             }
         }
@@ -285,75 +167,18 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
     private void CheckGround()
     {
         // do this with raycasts
-        bool _grounded = false;
+
         // check up
-        if (Physics2D.OverlapCircle(groundCheckUp1.position, groundDistance, groundLayer))
-        {
-            _grounded = true;
-            if (respawning || ((holdDirection == DIRECTION.UP || !isGrounded) && groundedDirection != DIRECTION.UP))
-            {
-                if(groundedDirection != DIRECTION.NONE) prevGroundedDirection = groundedDirection;
-                prevInputDirection = holdDirection;
-                groundedDirection = DIRECTION.UP;
-                if (Input.GetKey(KeyCode.W)) usingPreviousInput = true;
-                respawning = false;
-                return;
-            }
-        }
+        isGroundedUp = Physics2D.OverlapCircle(groundCheckUp1.position, groundDistance, groundLayer);
 
         // check down
-        if (Physics2D.OverlapCircle(groundCheckDown1.position, groundDistance, groundLayer))
-        {
-            _grounded = true;
-            if (respawning || ((holdDirection == DIRECTION.DOWN || !isGrounded) && groundedDirection != DIRECTION.DOWN))
-            {
-                if (groundedDirection != DIRECTION.NONE) prevGroundedDirection = groundedDirection;
-                prevInputDirection = holdDirection;
-                groundedDirection = DIRECTION.DOWN;
-                if (Input.GetKey(KeyCode.S)) usingPreviousInput = true;
-                respawning = false;
-                return;
-            }
-        }
+        isGroundedDown = Physics2D.OverlapCircle(groundCheckDown1.position, groundDistance, groundLayer);
 
         // check left
-        if (Physics2D.OverlapCircle(groundCheckLeft1.position, groundDistance, groundLayer))
-        {
-            _grounded = true;
-            if (respawning || ((holdDirection == DIRECTION.LEFT || !isGrounded) && groundedDirection != DIRECTION.LEFT))
-            {
-                if (groundedDirection != DIRECTION.NONE) prevGroundedDirection = groundedDirection;
-                prevInputDirection = holdDirection;
-                groundedDirection = DIRECTION.LEFT;
-                if(Input.GetKey(KeyCode.A)) usingPreviousInput = true;
-                respawning = false;
-                return;
-            }
-        }
+        isGroundedLeft = Physics2D.OverlapCircle(groundCheckLeft1.position, groundDistance, groundLayer);
 
         //check right
-        if (Physics2D.OverlapCircle(groundCheckRight1.position, groundDistance, groundLayer))
-        {
-            _grounded = true;
-            if (respawning || ((holdDirection == DIRECTION.RIGHT || !isGrounded) && groundedDirection != DIRECTION.RIGHT))
-            {
-                if (groundedDirection != DIRECTION.NONE) prevGroundedDirection = groundedDirection;
-                prevInputDirection = holdDirection;
-                groundedDirection = DIRECTION.RIGHT;
-                if (Input.GetKey(KeyCode.D)) usingPreviousInput = true;
-                respawning = false;
-                return;
-            }
-        }
-
-        if (!_grounded)
-        {
-            if(groundedDirection == DIRECTION.LEFT) prevGroundedDirection = DIRECTION.RIGHT;
-            if (groundedDirection == DIRECTION.RIGHT) prevGroundedDirection = DIRECTION.LEFT;
-            if (groundedDirection == DIRECTION.UP) prevGroundedDirection = DIRECTION.DOWN;
-            if (groundedDirection == DIRECTION.DOWN) prevGroundedDirection = DIRECTION.UP;
-            groundedDirection = DIRECTION.NONE;
-        }
+        isGroundedRight = Physics2D.OverlapCircle(groundCheckRight1.position, groundDistance, groundLayer);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -388,113 +213,110 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
     {
         //set rotation and set x or y axis movement
 
-        //if (!alreadyGrounded)
-        //{
-            if (groundedDirection == DIRECTION.DOWN)
+            if (isGroundedDown)
             {
                 yAxisMove = false;
                 xAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("D");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = false;
+                textA.SetText("A");
         }
             
-            if (groundedDirection == DIRECTION.UP)
+            if (isGroundedUp)
             {
                 yAxisMove = false;
                 xAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("A");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = true;
+                textA.SetText("D");
         }
 
-            if (groundedDirection == DIRECTION.RIGHT)
+            if (isGroundedRight)
             {
                 xAxisMove = false;
                 yAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("W");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = false;
+                textA.SetText("S");
         }
 
-            if (groundedDirection == DIRECTION.LEFT)
+            if (isGroundedLeft)
             {
                 xAxisMove = false;
                 yAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("S");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = false;
+                textA.SetText("W");
         }
-        //}
     }
 
     private void FlipSprite() // flip colliders as well
     {
-        //DOESNT FLIP CORRECTLY WHEN UPSIDE DOWN AND ON ONE OF THE WALLS
-        if (isGrounded)
+        if (isGroundedDown)
         {
-            if(groundedDirection == DIRECTION.UP) 
+            if (Input.GetKey(KeyCode.A))
             {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    spriteRenderer.flipX = false;
-                    colliders.transform.localScale = new Vector3(1, 1, 1);
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    spriteRenderer.flipX = true;
-                    colliders.transform.localScale = new Vector3(-1, 1, 1);
-                }
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
             }
-            else if (groundedDirection == DIRECTION.DOWN)
+            else if (Input.GetKey(KeyCode.D))
             {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    spriteRenderer.flipX = true;
-                    colliders.transform.localScale = new Vector3(-1, 1, 1);
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    spriteRenderer.flipX = false;
-                    colliders.transform.localScale = new Vector3(1, 1, 1);
-                }
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
             }
-            else if (groundedDirection == DIRECTION.LEFT)
+        }
+        else if (isGroundedUp)
+        {
+            if (Input.GetKey(KeyCode.D))
             {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    spriteRenderer.flipX = true;
-                    colliders.transform.localScale = new Vector3(-1, 1, 1);
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    spriteRenderer.flipX = false;
-                    colliders.transform.localScale = new Vector3(1, 1, 1);
-                }
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
             }
-            else if (groundedDirection == DIRECTION.RIGHT)
+            else if (Input.GetKey(KeyCode.A))
             {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    spriteRenderer.flipX = false;
-                    colliders.transform.localScale = new Vector3(1, 1, 1);
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    spriteRenderer.flipX = true;
-                    colliders.transform.localScale = new Vector3(-1, 1, 1);
-                }
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if (isGroundedLeft)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if (isGroundedRight)
+        {
+            if (Input.GetKey(KeyCode.S))
+            {
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetKey(KeyCode.W))
+            {
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
             }
         }
     }
 
     private void Jump() // tried to make slower jump
     {
-        if (groundedDirection == DIRECTION.DOWN)
+        if (isGroundedDown)
         {
             isJumping = true;
             health = playerHealth.currentHealth;
@@ -502,7 +324,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             alreadyGrounded = true;
         }
 
-        if (groundedDirection == DIRECTION.UP)
+        if (isGroundedUp)
         {
             isJumping = true;
             health = playerHealth.currentHealth;
@@ -510,7 +332,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             alreadyGrounded = true;
         }
 
-        if (groundedDirection == DIRECTION.RIGHT)
+        if (isGroundedRight)
         {
             isJumping = true;
             health = playerHealth.currentHealth;
@@ -518,7 +340,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             alreadyGrounded = true;
         }
 
-        if (groundedDirection == DIRECTION.LEFT)
+        if (isGroundedLeft)
         {
             isJumping = true;
             health = playerHealth.currentHealth;
@@ -529,7 +351,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
     private void Animations()
     {
-        if (isGrounded)
+        if (isGroundedDown || isGroundedLeft || isGroundedRight || isGroundedUp)
         {
             anim.SetBool("Jumping", false);
         }
@@ -539,15 +361,13 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-        if (groundedDirection == DIRECTION.DOWN && rb.velocity.x > velocityForAnim || groundedDirection == DIRECTION.DOWN && rb.velocity.x < -velocityForAnim 
-            || groundedDirection == DIRECTION.UP && rb.velocity.x > velocityForAnim 
-            || groundedDirection == DIRECTION.UP && rb.velocity.x < -velocityForAnim)
+        if (isGroundedDown && rb.velocity.x > velocityForAnim || isGroundedDown && rb.velocity.x < -velocityForAnim || isGroundedUp && rb.velocity.x > velocityForAnim 
+            || isGroundedUp && rb.velocity.x < -velocityForAnim)
         {
             anim.SetBool("Walking", true);
         }
-        else if (groundedDirection == DIRECTION.RIGHT && rb.velocity.y > velocityForAnim || groundedDirection == DIRECTION.RIGHT && rb.velocity.y < -velocityForAnim 
-            || groundedDirection == DIRECTION.LEFT && rb.velocity.y > velocityForAnim
-            || groundedDirection == DIRECTION.LEFT && rb.velocity.y < -velocityForAnim)
+        else if (isGroundedRight && rb.velocity.y > velocityForAnim || isGroundedRight && rb.velocity.y < -velocityForAnim || isGroundedLeft && rb.velocity.y > velocityForAnim
+            || isGroundedLeft && rb.velocity.y < -velocityForAnim)
         {
             anim.SetBool("Walking", true);
         }
