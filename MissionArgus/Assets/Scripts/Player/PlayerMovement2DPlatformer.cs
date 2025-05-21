@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement2DPlatformer : MonoBehaviour
 {
@@ -58,7 +59,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
     public AudioSource jumpSound;
 
     public GameObject guideTextD;
+    public TextMeshProUGUI textD;
     public GameObject guideTextA;
+    public TextMeshProUGUI textA;
 
     void Update()
     {
@@ -210,16 +213,15 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
     {
         //set rotation and set x or y axis movement
 
-        //if (!alreadyGrounded)
-        //{
             if (isGroundedDown)
             {
                 yAxisMove = false;
                 xAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("D");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = false;
+                textA.SetText("A");
         }
             
             if (isGroundedUp)
@@ -228,8 +230,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
                 xAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("A");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = true;
+                textA.SetText("D");
         }
 
             if (isGroundedRight)
@@ -238,8 +241,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
                 yAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("W");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = false;
+                textA.SetText("S");
         }
 
             if (isGroundedLeft)
@@ -248,15 +252,15 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
                 yAxisMove = true;
                 spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
                 guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+                textD.SetText("S");
                 guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //spriteRenderer.flipY = false;
+                textA.SetText("W");
         }
-        //}
     }
 
     private void FlipSprite() // flip colliders as well
     {
-        if (isGrounded)
+        if (isGroundedDown)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -269,19 +273,45 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
                 colliders.transform.localScale = new Vector3(1, 1, 1);
             }
         }
-        //else if (isGroundedUp)
-        //{
-        //    if (Input.GetKey(KeyCode.D))
-        //    {
-        //        spriteRenderer.flipX = true;
-        //        colliders.transform.localScale = new Vector3(-1, 1, 1);
-        //    }
-        //    else if (Input.GetKey(KeyCode.A))
-        //    {
-        //        spriteRenderer.flipX = false;
-        //        colliders.transform.localScale = new Vector3(1, 1, 1);
-        //    }
-        //}
+        else if (isGroundedUp)
+        {
+            if (Input.GetKey(KeyCode.D))
+            {
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if (isGroundedLeft)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if (isGroundedRight)
+        {
+            if (Input.GetKey(KeyCode.S))
+            {
+                spriteRenderer.flipX = true;
+                colliders.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetKey(KeyCode.W))
+            {
+                spriteRenderer.flipX = false;
+                colliders.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
     }
 
     private void Jump() // tried to make slower jump
