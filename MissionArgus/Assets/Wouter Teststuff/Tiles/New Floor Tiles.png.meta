@@ -1869,7 +1869,7 @@ TextureImporter:
       name: New Floor Tiles_83
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -1890,7 +1890,7 @@ TextureImporter:
       name: New Floor Tiles_84
       rect:
         serializedVersion: 2
-        x: 80
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -1911,7 +1911,7 @@ TextureImporter:
       name: New Floor Tiles_85
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -1932,7 +1932,7 @@ TextureImporter:
       name: New Floor Tiles_86
       rect:
         serializedVersion: 2
-        x: 128
+        x: 48
         y: 0
         width: 16
         height: 16
@@ -1953,7 +1953,7 @@ TextureImporter:
       name: New Floor Tiles_87
       rect:
         serializedVersion: 2
-        x: 144
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -1974,7 +1974,7 @@ TextureImporter:
       name: New Floor Tiles_88
       rect:
         serializedVersion: 2
-        x: 160
+        x: 80
         y: 0
         width: 16
         height: 16
@@ -1987,6 +1987,90 @@ TextureImporter:
       bones: []
       spriteID: 5d99c0374ecd3e741b969a4a1e353559
       internalID: 556219873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_89
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe76f24dc3f4e364e96ef46d62b798dd
+      internalID: 78268687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_90
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f3a66e2a1095e408bf0d9c40b8fb2c
+      internalID: -1934243150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_91
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8672121a9042b434b9024637781844e0
+      internalID: -556830503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_92
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d7c303d86225749bfbf8152fa00563
+      internalID: 911169098
       vertices: []
       indices: 
       edges: []
@@ -2090,7 +2174,11 @@ TextureImporter:
       New Floor Tiles_86: -436113336
       New Floor Tiles_87: -1695295941
       New Floor Tiles_88: 556219873
+      New Floor Tiles_89: 78268687
       New Floor Tiles_9: -1291400108
+      New Floor Tiles_90: -1934243150
+      New Floor Tiles_91: -556830503
+      New Floor Tiles_92: 911169098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
