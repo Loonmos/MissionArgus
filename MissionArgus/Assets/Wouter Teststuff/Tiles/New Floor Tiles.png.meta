@@ -1554,7 +1554,7 @@ TextureImporter:
       name: New Floor Tiles_68
       rect:
         serializedVersion: 2
-        x: 128
+        x: 112
         y: 32
         width: 16
         height: 16
@@ -1575,7 +1575,7 @@ TextureImporter:
       name: New Floor Tiles_69
       rect:
         serializedVersion: 2
-        x: 144
+        x: 128
         y: 32
         width: 16
         height: 16
@@ -1596,7 +1596,7 @@ TextureImporter:
       name: New Floor Tiles_70
       rect:
         serializedVersion: 2
-        x: 160
+        x: 144
         y: 32
         width: 16
         height: 16
@@ -1617,7 +1617,7 @@ TextureImporter:
       name: New Floor Tiles_71
       rect:
         serializedVersion: 2
-        x: 176
+        x: 160
         y: 32
         width: 16
         height: 16
@@ -1638,7 +1638,7 @@ TextureImporter:
       name: New Floor Tiles_72
       rect:
         serializedVersion: 2
-        x: 192
+        x: 176
         y: 32
         width: 16
         height: 16
@@ -1659,7 +1659,7 @@ TextureImporter:
       name: New Floor Tiles_73
       rect:
         serializedVersion: 2
-        x: 208
+        x: 192
         y: 32
         width: 16
         height: 16
@@ -1680,8 +1680,8 @@ TextureImporter:
       name: New Floor Tiles_74
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 208
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1701,7 +1701,7 @@ TextureImporter:
       name: New Floor Tiles_75
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 16
         width: 16
         height: 16
@@ -1722,7 +1722,7 @@ TextureImporter:
       name: New Floor Tiles_76
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 16
         width: 16
         height: 16
@@ -1743,7 +1743,7 @@ TextureImporter:
       name: New Floor Tiles_77
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 16
         width: 16
         height: 16
@@ -1764,7 +1764,7 @@ TextureImporter:
       name: New Floor Tiles_78
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 16
         width: 16
         height: 16
@@ -1785,7 +1785,7 @@ TextureImporter:
       name: New Floor Tiles_79
       rect:
         serializedVersion: 2
-        x: 96
+        x: 80
         y: 16
         width: 16
         height: 16
@@ -1806,7 +1806,7 @@ TextureImporter:
       name: New Floor Tiles_80
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 16
         width: 16
         height: 16
@@ -1827,7 +1827,7 @@ TextureImporter:
       name: New Floor Tiles_81
       rect:
         serializedVersion: 2
-        x: 144
+        x: 112
         y: 16
         width: 16
         height: 16
@@ -1848,7 +1848,7 @@ TextureImporter:
       name: New Floor Tiles_82
       rect:
         serializedVersion: 2
-        x: 160
+        x: 128
         y: 16
         width: 16
         height: 16
@@ -1869,8 +1869,8 @@ TextureImporter:
       name: New Floor Tiles_83
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 144
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -1890,8 +1890,8 @@ TextureImporter:
       name: New Floor Tiles_84
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 160
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -1911,7 +1911,7 @@ TextureImporter:
       name: New Floor Tiles_85
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -1932,7 +1932,7 @@ TextureImporter:
       name: New Floor Tiles_86
       rect:
         serializedVersion: 2
-        x: 48
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -1953,7 +1953,7 @@ TextureImporter:
       name: New Floor Tiles_87
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -1974,7 +1974,7 @@ TextureImporter:
       name: New Floor Tiles_88
       rect:
         serializedVersion: 2
-        x: 80
+        x: 48
         y: 0
         width: 16
         height: 16
@@ -1995,7 +1995,7 @@ TextureImporter:
       name: New Floor Tiles_89
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -2016,7 +2016,7 @@ TextureImporter:
       name: New Floor Tiles_90
       rect:
         serializedVersion: 2
-        x: 128
+        x: 80
         y: 0
         width: 16
         height: 16
@@ -2037,7 +2037,7 @@ TextureImporter:
       name: New Floor Tiles_91
       rect:
         serializedVersion: 2
-        x: 144
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -2058,7 +2058,7 @@ TextureImporter:
       name: New Floor Tiles_92
       rect:
         serializedVersion: 2
-        x: 160
+        x: 112
         y: 0
         width: 16
         height: 16
@@ -2071,6 +2071,132 @@ TextureImporter:
       bones: []
       spriteID: 80d7c303d86225749bfbf8152fa00563
       internalID: 911169098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_93
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587ff8898bdacd34d92f827055987edd
+      internalID: 1463429133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_94
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41e35d71716d1b40a8766bc3d4bf8e6
+      internalID: 1662708460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_95
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd85d4f7c71b37145afcfd89867f128e
+      internalID: 716489554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_96
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48b29da2f9b40745a4165dcedaa9e98
+      internalID: -533376625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_97
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d870010318578f14484aea18e03787ab
+      internalID: -609609710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Floor Tiles_98
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b208e71e69738f47ab6d7652cff9162
+      internalID: -604232093
       vertices: []
       indices: 
       edges: []
@@ -2179,6 +2305,12 @@ TextureImporter:
       New Floor Tiles_90: -1934243150
       New Floor Tiles_91: -556830503
       New Floor Tiles_92: 911169098
+      New Floor Tiles_93: 1463429133
+      New Floor Tiles_94: 1662708460
+      New Floor Tiles_95: 716489554
+      New Floor Tiles_96: -533376625
+      New Floor Tiles_97: -609609710
+      New Floor Tiles_98: -604232093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
