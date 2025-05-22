@@ -82914,6 +82914,10 @@ PrefabInstance:
       propertyPath: guideTextD
       value: 
       objectReference: {fileID: 1076237051}
+    - target: {fileID: 7640549090893556959, guid: a6c45e36361517e49aa9586e58a622ab, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 8678607692768016944, guid: a6c45e36361517e49aa9586e58a622ab, type: 3}
       propertyPath: m_Name
       value: Player
