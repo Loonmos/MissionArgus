@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,69 +139,6 @@ TextureImporter:
       bones: []
       spriteID: 0366f7308e3baf54b9d3dea774941198
       internalID: 1249761280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite-0001_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88eb62a57ce2e9e42ae07e984baa349e
-      internalID: 2140685945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite-0001_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c761200e3cd65941bd60d3b6b497127
-      internalID: -327449349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite-0001_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f085159d9e8b92345a5a60a56e40f15a
-      internalID: 1190924605
       vertices: []
       indices: 
       edges: []
@@ -218,9 +155,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Sprite-0001_0: 1249761280
-      Sprite-0001_1: 2140685945
-      Sprite-0001_2: -327449349
-      Sprite-0001_3: 1190924605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

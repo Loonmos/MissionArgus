@@ -13,6 +13,7 @@ public class ItemPickup : MonoBehaviour
     public PlayerInventory playerInventory;
     public bool inInventory;
     public string itemName;
+    public float spriteChangeDistance;
 
     void Start()
     {
@@ -25,11 +26,11 @@ public class ItemPickup : MonoBehaviour
         if (inInventory) return;
         playerDistance = (playerInventory.transform.position - transform.position).magnitude;
 
-        if (playerDistance <= 2 && spriteRenderer.sprite != item2)
+        if (playerDistance <= spriteChangeDistance && spriteRenderer.sprite != item2)
         {
             spriteRenderer.sprite = item2;
         }
-        else if (playerDistance >= 2 && spriteRenderer.sprite != item1)
+        else if (playerDistance >= spriteChangeDistance && spriteRenderer.sprite != item1)
         {
             spriteRenderer.sprite = item1;
         }
