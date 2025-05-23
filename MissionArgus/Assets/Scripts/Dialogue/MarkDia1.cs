@@ -10,7 +10,7 @@ public class MarkDia1 : MonoBehaviour
     public GameObject diaScreenMark;
     public TextMeshProUGUI diaTextMark;
     public Animator animMark;
-    public GameObject mark;
+    public GameObject mark1;
 
     public GameObject diaScreenPlayer;
     public TextMeshProUGUI diaTextPlayer;
@@ -33,6 +33,7 @@ public class MarkDia1 : MonoBehaviour
         diaScreenPlayer.SetActive(false);
         triggerObject.SetActive(true);
         finishedDialogue = false;
+        mark1.SetActive(true);
     }
 
 
@@ -103,6 +104,9 @@ public class MarkDia1 : MonoBehaviour
 
     private void M2()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
+        diaScreenMark.SetActive(true);
         diaTextMark.SetText("WHO THE HELL ARE YOU?");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
@@ -114,6 +118,8 @@ public class MarkDia1 : MonoBehaviour
 
     private void M3()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(true);
         diaScreenMark.SetActive(false);
         diaTextPlayer.SetText("I'm Sam. I've been sent from Proxima Centauri to fix your communication station.");
@@ -127,6 +133,8 @@ public class MarkDia1 : MonoBehaviour
 
     private void M4()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(true);
         diaTextPlayer.SetText("What happened here? Where is everyone?");
 
@@ -139,9 +147,11 @@ public class MarkDia1 : MonoBehaviour
 
     private void M5()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(false);
         diaScreenMark.SetActive(true);
-        diaTextMark.SetText("LET'S JUST CALL IT AN EXPERIMENT GONE WRONG.");
+        diaTextMark.SetText("Let's just call it an experiment gone wrong.");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
@@ -152,8 +162,10 @@ public class MarkDia1 : MonoBehaviour
 
     private void M6()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenMark.SetActive(true);
-        diaTextMark.SetText("HERE IS NOTHING FOR YOU TO DO HERE. YOU NEED TO GET THE HELL OUT BEFORE THEY GET YOU TOO.");
+        diaTextMark.SetText("There is nothing for you to do here. You need to get the hell out before they get you too.");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
@@ -164,6 +176,8 @@ public class MarkDia1 : MonoBehaviour
 
     private void M7()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(true);
         diaScreenMark.SetActive(false);
         diaTextPlayer.SetText("Who are they?");
@@ -177,9 +191,11 @@ public class MarkDia1 : MonoBehaviour
 
     private void M8()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(false);
         diaScreenMark.SetActive(true);
-        diaTextMark.SetText("NOW DON'T YOU WORRY ABOUT THAT, JUST DON'T LOOK OUT OF THE WINDOW OR TOUCH THE GREEN STUFF.");
+        diaTextMark.SetText("Now don't worry about that, just don't look out of the window or touch the green stuff.");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
@@ -191,6 +207,8 @@ public class MarkDia1 : MonoBehaviour
 
     private void M9()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(true);
         diaScreenMark.SetActive(false);
         diaTextPlayer.SetText("Look I can't even leave until I've recharged my ship, just tell me what is going on.");
@@ -205,9 +223,11 @@ public class MarkDia1 : MonoBehaviour
 
     private void M10()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(false);
         diaScreenMark.SetActive(true);
-        diaTextMark.SetText("THEN YOU GO DOWN TO THE POWER STATION, FIX IT AND LEAVE!");
+        diaTextMark.SetText("Then you grab (E) the keycard from my hide-out on the top right, go down to the power station and fix it.");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
@@ -218,6 +238,8 @@ public class MarkDia1 : MonoBehaviour
 
     private void M11()
     {
+        playerMovement.enabled = false;
+        playerMovement.rb.velocity = new Vector2(0, 0);
         diaScreenPlayer.SetActive(true);
         diaScreenMark.SetActive(false);
         diaTextPlayer.SetText("Come on man, you gotta tell me something.");
@@ -233,7 +255,7 @@ public class MarkDia1 : MonoBehaviour
     {
         diaScreenPlayer.SetActive(false);
         diaScreenMark.SetActive(true);
-        diaTextMark.SetText("LEAVE!!");
+        diaTextMark.SetText("Get out!!");
 
         finishedDialogue = true;
 
@@ -242,5 +264,12 @@ public class MarkDia1 : MonoBehaviour
             cooldown = 0;
             state = State.Nothing;
         }
+    }
+
+    public void RemoveMark1Trigger()
+    {
+        triggerObject.SetActive(false);
+        mark1.SetActive(false);
+        Debug.Log("remove trigger and mark");
     }
 }

@@ -213,48 +213,48 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
     {
         //set rotation and set x or y axis movement
 
-            if (isGroundedDown)
-            {
-                yAxisMove = false;
-                xAxisMove = true;
-                spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
-                guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textD.SetText("D");
-                guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textA.SetText("A");
-        }
-            
-            if (isGroundedUp)
-            {
-                yAxisMove = false;
-                xAxisMove = true;
-                spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
-                guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textD.SetText("A");
-                guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textA.SetText("D");
+        if (isGroundedDown)
+        {
+            yAxisMove = false;
+            xAxisMove = true;
+            spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
+            guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //textD.SetText("D");
+            guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //textA.SetText("A");
         }
 
-            if (isGroundedRight)
-            {
-                xAxisMove = false;
-                yAxisMove = true;
-                spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
-                guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textD.SetText("W");
-                guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textA.SetText("S");
+        if (isGroundedUp)
+        {
+            yAxisMove = false;
+            xAxisMove = true;
+            spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
+            guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //textD.SetText("A");
+            guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //textA.SetText("D");
         }
 
-            if (isGroundedLeft)
-            {
-                xAxisMove = false;
-                yAxisMove = true;
-                spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
-                guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textD.SetText("S");
-                guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-                textA.SetText("W");
+        if (isGroundedRight)
+        {
+            xAxisMove = false;
+            yAxisMove = true;
+            spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
+            guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //            textD.SetText("W");
+            guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //            textA.SetText("S");
+        }
+
+        if (isGroundedLeft)
+        {
+            xAxisMove = false;
+            yAxisMove = true;
+            spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
+            guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //            textD.SetText("S");
+            guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //            textA.SetText("W");
         }
     }
 
@@ -361,7 +361,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-        if (isGroundedDown && rb.velocity.x > velocityForAnim || isGroundedDown && rb.velocity.x < -velocityForAnim || isGroundedUp && rb.velocity.x > velocityForAnim 
+        if (isGroundedDown && rb.velocity.x > velocityForAnim || isGroundedDown && rb.velocity.x < -velocityForAnim || isGroundedUp && rb.velocity.x > velocityForAnim
             || isGroundedUp && rb.velocity.x < -velocityForAnim)
         {
             anim.SetBool("Walking", true);

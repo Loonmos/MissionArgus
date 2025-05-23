@@ -21,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     private float animDelay = 0.2f;
     public float animTime;
 
+    bool isDead = false;
+
     public float particleTime;
 
     private void Awake()
@@ -58,6 +60,16 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             healthbar.SetHealth(currentHealth);
         }
+
+        if (deathScreen.activeInHierarchy)
+        {
+            //Debug.Log("deathScreen is active in hierarchy");
+        }
+        else
+        {
+            //Debug.Log("deathScreen is not active in hierarchy");
+        }
+
     }
 
     public void TakeDamage(int damage)
@@ -67,10 +79,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            
+
         }
-        else
+        else if (!isDead)
         {
+            isDead = true;
             rb.velocity = new Vector2(0, 0);
             playerMovement.enabled = false;
             StartCoroutine(Death());
@@ -117,16 +130,21 @@ public class PlayerHealth : MonoBehaviour
 
         yield return new WaitForSeconds(animTime);
 
-        deathScreen.SetActive(true);
+        if (isDead)
+        {
+            deathScreen.SetActive(true);
+        }
     }
 
     public void ResetAfterDeath()
     {
         StopCoroutine(Death());
+        isDead = false;
         animPlayer.Play("Idle");
         playerMovement.enabled = true;
         currentHealth = 100;
         deathScreen.SetActive(false);
         saveLoad.LoadPosition();
+        Debug.Log("RESET AFTER DEATH CALLED!!!!!!!!!");
     }
 }
