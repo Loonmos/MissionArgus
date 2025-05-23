@@ -63,11 +63,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (deathScreen.activeInHierarchy)
         {
-            Debug.Log("deathScreen is active in hierarchy");
+            //Debug.Log("deathScreen is active in hierarchy");
         }
         else
         {
-            Debug.Log("deathScreen is not active in hierarchy");
+            //Debug.Log("deathScreen is not active in hierarchy");
         }
 
     }
