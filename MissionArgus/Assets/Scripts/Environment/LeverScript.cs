@@ -15,12 +15,14 @@ public class LeverScript : MonoBehaviour, IActivatable
     public int leversNeeded;
     private int leversPulled;
     public GameObject itemLight;
+    public AudioSource audioSource;
 
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = unInteractable;
         itemLight.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,6 +49,7 @@ public class LeverScript : MonoBehaviour, IActivatable
                 lightsOn.SetActive(true);
                 itemLight.SetActive(false);
             }
+            audioSource.Play();
             spriteRenderer.sprite = flipped;
             iActivatable.GetComponent<IActivatable>().Activate();
             isFlipped = true;

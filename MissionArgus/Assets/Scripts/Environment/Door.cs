@@ -15,11 +15,13 @@ public class Door : MonoBehaviour
     public float maxDoorDistance;
     public Animator doorAnim;
     public Collider2D doorCollider;
+    public AudioSource audioSource;
 
     void Start()
     {
         doorCollider = GetComponent<Collider2D>();
         doorAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -30,13 +32,21 @@ public class Door : MonoBehaviour
         {
             doorAnim.SetBool("open", true);
             doorCollider.enabled = false;
+            audioSource.Play();
             doorOpen = true;
         }
         else if (playerDistance >= maxDoorDistance && doorOpen)
         {
             doorAnim.SetBool("open", false);
             doorCollider.enabled = true;
+            StartCoroutine(playDelay());
             doorOpen = false;
         }
+    }
+
+    IEnumerator playDelay()
+    {
+        yield return new WaitForSeconds(0.28f);
+        audioSource.Play();
     }
 }
