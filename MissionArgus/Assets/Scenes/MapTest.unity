@@ -83426,6 +83426,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1525163490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1070902684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1835738792214828617, guid: a6c45e36361517e49aa9586e58a622ab, type: 3}
+  m_PrefabInstance: {fileID: 1076237047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1070902685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 559823567358852113, guid: a6c45e36361517e49aa9586e58a622ab, type: 3}
+  m_PrefabInstance: {fileID: 1076237047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1076237047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121251,7 +121261,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 6
+  speed: 3
   jumpForce: 6
   isGroundedUp: 0
   isGroundedDown: 0
@@ -121274,10 +121284,10 @@ MonoBehaviour:
   walkSounds: {fileID: 1693946049}
   walkSoundDelay: 0.9
   jumpSound: {fileID: 1778787824}
-  guideTextD: {fileID: 1076237051}
-  textD: {fileID: 0}
-  guideTextA: {fileID: 1076237052}
-  textA: {fileID: 0}
+  guideTextD: {fileID: 1070902685}
+  textD: {fileID: 1703121065}
+  guideTextA: {fileID: 1070902684}
+  textA: {fileID: 1076237057}
 --- !u!114 &1693946049 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8586880470665298735, guid: a6c45e36361517e49aa9586e58a622ab, type: 3}
