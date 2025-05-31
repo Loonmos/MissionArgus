@@ -219,9 +219,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             xAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
             guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //textD.SetText("D");
+            textD.SetText("D");
             guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //textA.SetText("A");
+            textA.SetText("A");
         }
 
         if (isGroundedUp)
@@ -230,9 +230,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             xAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
             guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //textD.SetText("A");
+            textD.SetText("A");
             guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //textA.SetText("D");
+            textA.SetText("D");
         }
 
         if (isGroundedRight)
@@ -241,9 +241,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             yAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
             guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //            textD.SetText("W");
+            textD.SetText("W");
             guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //            textA.SetText("S");
+            textA.SetText("S");
         }
 
         if (isGroundedLeft)
@@ -252,9 +252,9 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
             yAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
             guideTextD.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //            textD.SetText("S");
+            textD.SetText("S");
             guideTextA.transform.rotation = Quaternion.Euler(0, 0, 0);
-            //            textA.SetText("W");
+            textA.SetText("W");
         }
     }
 
