@@ -127,6 +127,9 @@ public class PlayerHealth : MonoBehaviour
     {
         animPlayer.speed = 1;
         animPlayer.Play("Death");
+        playerMovement.rb.velocity = new Vector2(0, 0);
+        playerMovement.enabled = false;
+        Debug.Log("turned movement off");
 
         yield return new WaitForSeconds(animTime);
 

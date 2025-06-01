@@ -24,6 +24,8 @@ public class OpenEye : MonoBehaviour
     public bool alreadyOpen;
     public bool isNotPlayer;
 
+    public GameObject UIisLooking;
+
     void Start()
     {
         playerHealth = player.GetComponent<PlayerHealth>();
@@ -68,6 +70,7 @@ public class OpenEye : MonoBehaviour
         openEye.SetActive(true);
         closedEye.SetActive(false);
         eyeBall.SetActive(true);
+        UIisLooking.SetActive(true);
 
         isLooking = true;
         if (!isNotPlayer)
@@ -83,6 +86,7 @@ public class OpenEye : MonoBehaviour
         openEye.SetActive(false);
         closedEye.SetActive(true);
         eyeBall.SetActive(false);
+        UIisLooking.SetActive(false);
 
         isLooking = false;
         StopCoroutine(VolumeStart());
