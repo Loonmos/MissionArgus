@@ -1,0 +1,783 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using DG.Tweening;
+using UnityEngine.Playables;
+
+public class AllDialogue : MonoBehaviour
+{
+    #region Variables
+
+    [Header("Player")]
+    public GameObject screenPlayer;
+    public TextMeshProUGUI textPlayer;
+    public Animator animPlayer;
+    public PlayerMovement2DPlatformer playerMovement;
+    public Rigidbody2D playerRb;
+
+    [Header("Mark")]
+    public GameObject screenMark;
+    public TextMeshProUGUI textMark;
+    public Animator animMark;
+    public GameObject mark;
+
+    [Header("State Machine")]
+    private float cooldown = 0;
+    public float textTime;
+    public bool finishedDialogue1;
+    public bool finishedDialogue2;
+    public bool finishedDialogue3;
+
+    public enum State { Nothing, 
+                        Ship1, Ship2, Ship3, Ship4, 
+                        Nav1, Nav2,
+                        Mark1d1, Player1d2, Mark1d3, Player1d4, Mark1d5, Player1d6, Player1d7, Mark1d8, Mark1d9, Mark1d10, Mark1d11,
+                        Mark2d1, Mark2d2, Mark2d3, Mark2d4, Player2d5, Mark2d6, Mark2d7, Mark2d8, Mark2d9, Mark2d10, Mark2d11, Mark2d12, Mark2d13,
+                        M30, P30, M31, 
+                        Chase,
+                        Pod1}
+    public State state = State.Ship1;
+
+    [Header("Trigger Colliders")]
+    public GameObject triggerNav;
+    public GameObject triggerMark1;
+    public GameObject triggerMark2;
+    public GameObject triggerMark3;
+    public GameObject triggerPod;
+
+    [Header("Other")]
+    public GameObject greenCard;
+
+    public PlayableDirector chaseTimeline;
+    public Door greydoor1;
+    public Door greydoor2;
+
+    [Header("Mark Positions")]
+    public Transform markPosEvent2;
+
+    public List<Transform> chasePositions;
+    [SerializeField] private int currentPoint;
+
+    public float markSpeed = 6;
+    [SerializeField] private float markDistance;
+
+    [SerializeField] private bool isMoving;
+
+    #endregion
+
+    void Start()
+    {
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(false);
+        triggerNav.SetActive(true);
+        triggerMark1.SetActive(true);
+        triggerMark2.SetActive(false);
+        triggerMark3.SetActive(false);
+        triggerPod.SetActive(true);
+        finishedDialogue1 = false;
+        finishedDialogue2 = false;
+        finishedDialogue3 = false;
+        mark.SetActive(true);
+        playerMovement.enabled = true;
+        greydoor1.enabled = true;
+        greydoor2.enabled = true;
+    }
+
+    void Update()
+    {
+        CheckState();
+
+        if (state != State.Nothing)
+        {
+            cooldown += Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Transition1to2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Transition2to3();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            state = State.Chase;
+        }
+    }
+
+    private void CheckState()
+    {
+        switch (state)
+        {
+            case State.Nothing: Nothing(); break;
+
+            case State.Ship1: Ship1(); break;
+            case State.Ship2: Ship2(); break;
+            case State.Ship3: Ship3(); break;
+            case State.Ship4: Ship4(); break;
+
+            case State.Nav1: Nav1(); break;
+            case State.Nav2: Nav2(); break;
+
+            case State.Mark1d1: Mark1d1(); break;
+            case State.Player1d2: Player1d2(); break;
+            case State.Mark1d3: Mark1d3(); break;
+            case State.Player1d4: Player1d4(); break;
+            case State.Mark1d5: Mark1d5(); break;
+            case State.Player1d6: Player1d6(); break;
+            case State.Player1d7: Player1d7(); break;
+            case State.Mark1d8: Mark1d8(); break;
+            case State.Mark1d9: Mark1d9(); break;
+            case State.Mark1d10: Mark1d10(); break;
+            case State.Mark1d11: Mark1d11(); break;
+
+            case State.Mark2d1: Mark2d1(); break;
+            case State.Mark2d2: Mark2d2(); break;
+            case State.Mark2d3: Mark2d3(); break;
+            case State.Mark2d4: Mark2d4(); break;
+            case State.Player2d5: Player2d5(); break;
+            case State.Mark2d6: Mark2d6(); break;
+            case State.Mark2d7: Mark2d7(); break;
+            case State.Mark2d8: Mark2d8(); break;
+            case State.Mark2d9: Mark2d9(); break;
+            case State.Mark2d10: Mark2d10(); break;
+            case State.Mark2d11: Mark2d11(); break;
+            case State.Mark2d12: Mark2d12(); break;
+            case State.Mark2d13: Mark2d13(); break;
+
+            case State.M30: M30(); break;
+            case State.P30: P30(); break;
+            case State.M31: M31(); break;
+
+            case State.Chase: Chase(); break;
+        }
+    }
+
+    private void Nothing()
+    {
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(false);
+        playerMovement.enabled = true;
+    }
+
+    #region Ship
+
+    private void Ship1()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("What the hell did I just see?");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Ship2;
+        }
+    }
+
+    private void Ship2()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("I'd better find someone and get some answers.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Ship3;
+        }
+    }
+
+    private void Ship3()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("It seems like the artifical gravity generator is no longer working. Luckily I came prepared.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Ship4;
+        }
+    }
+
+    private void Ship4()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("I can use WASD to walk across any surface: floors, walls and ceilings.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    #endregion
+
+    #region Navigation
+
+    public void TriggerNavigation()
+    {
+        state = State.Nav1;
+    }
+
+    private void Nav1()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("What is that green stuff? That shouldn't be here.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nav2;
+        }
+    }
+
+    private void Nav2()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("I'd better avoid it.");
+
+        triggerNav.SetActive(false);
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    #endregion
+
+    #region Mark1
+
+    public void TriggerEvent1()
+    {
+        if (!finishedDialogue1)
+        {
+            state = State.Mark1d1;
+        }
+        else
+        {
+            state = State.Mark1d11;
+        }
+    }
+
+    private void Mark1d1()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("STAY BACK! DON'T LOOK AT ME!");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Player1d2;
+        }
+    }
+
+    private void Player1d2()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Wow calm down! What's going on here? What happened?");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark1d3;
+        }
+    }
+
+    private void Mark1d3()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Oh thank god, you're not one of them.");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Player1d4;
+        }
+    }
+
+    private void Player1d4()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("One of what?");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark1d5;
+        }
+    }
+
+    private void Mark1d5()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("You're... Doesn't matter. The name's Mark, I don't think I've seen you around here.");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Player1d6;
+        }
+    }
+
+    private void Player1d6()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("I'm Robin, I've been sent by HQ to fix your communication unit.");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Player1d7;
+        }
+    }
+
+    private void Player1d7()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Could you tell me what happened here?");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark1d8;
+        }
+    }
+
+    private void Mark1d8()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("There's too much to explain, all you need to know is that we need to get out of here asap.");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark1d9;
+        }
+    }
+
+    private void Mark1d9()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("They... Those <b>eyes</b> taken over the power station");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark1d10;
+        }
+    }
+
+    private void Mark1d10()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("We need to get the power going if we want to charge an escape pod and whatever ship you came with.");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark1d11;
+        }
+    }
+
+    private void Mark1d11()
+    {
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("You can probably fix it right? You can find the room if you go south. I'll tell you more once we can see again.");
+
+        finishedDialogue1 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    #endregion
+
+    public void Transition1to2()
+    {
+        mark.transform.DOMove(markPosEvent2.position, 1);
+        triggerMark1.SetActive(false);
+        triggerMark2.SetActive(true);
+    }
+
+    #region Mark2
+
+    public void TriggerEvent2()
+    {
+        if (!finishedDialogue2)
+        {
+            state = State.Mark2d1;
+        }
+        else
+        {
+            state = State.Mark2d13;
+        }
+    }
+
+    private void Mark2d1()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("You- You actually did it. I didn't expect-");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d2;
+        }
+    }
+
+    private void Mark2d2()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("I mean, good job! Now we just have to fix navigation's computer and type in the coordinates to HQ.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d3;
+        }
+    }
+
+    private void Mark2d3()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Take this keycard. It should open up the eastern wing.");
+
+        greenCard.SetActive(true);
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d4;
+        }
+    }
+
+    private void Mark2d4()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Go to storage and find the wires needed to fix the computer. The sooner it's done, the faster we can go.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Player2d5;
+        }
+    }
+
+    private void Player2d5()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Alright, but don't you owe me an explanation.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d6;
+        }
+    }
+
+    private void Mark2d6()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Fine. I'm part of the crew that was sent to Argus 108 to study the supposed lifeforms on its outer layer.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d7;
+        }
+    }
+
+    private void Mark2d7()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("We took back some sample tissues, but something happened overnight.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d8;
+        }
+    }
+
+    private void Mark2d8()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("The substance started... growing, at rapid speed.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d9;
+        }
+    }
+
+    private void Mark2d9()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("It spread on chairs, walls, even my crewmembers...");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d10;
+        }
+    }
+
+    private void Mark2d10()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("But that's not all. They started sprouting... <b>eyes</b>.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d11;
+        }
+    }
+
+    private void Mark2d11()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("If they look at you, you become entranced and they'll get you too.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d12;
+        }
+    }
+
+    private void Mark2d12()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Don't look at anything that's green.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark2d13;
+        }
+    }
+
+    private void Mark2d13()
+    {
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Now go to storage in the eastern wing, before it's too late...");
+
+        finishedDialogue2 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    #endregion
+
+    public void Transition2to3()
+    {
+        //move mark
+        triggerMark2.SetActive(false);
+        triggerMark3.SetActive(true);
+    }
+
+    #region Mark3
+
+    public void TriggerEvent3()
+    {
+        if (!finishedDialogue3)
+        {
+            state = State.M30;
+        }
+        else
+        {
+            state = State.M31;
+        }
+    }
+
+    private void M30()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("This is event 3");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.P30;
+        }
+    }
+
+    private void P30()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("This is player response 3");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.M31;
+        }
+    }
+
+    private void M31()
+    {
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("This is the end text 3");
+
+        finishedDialogue3 = true;
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    #endregion
+
+    #region Chase
+
+    private void Chase()
+    {
+
+        chaseTimeline.Play();
+        greydoor1.enabled = false;
+        greydoor2.enabled = false;
+
+    //    if (!isMoving)
+    //    {
+    //        isMoving = true;
+
+        //        //before move
+        //        markDistance = Vector3.Distance(mark.transform.position, chasePositions[currentPoint].transform.position); //calculate the distance
+        //        float duration = markDistance / markSpeed; //calculate duration
+
+        //        //then
+        //        mark.transform.DOMove(chasePositions[currentPoint].position, duration);
+        //    }
+
+        //    //after
+        //    if (mark.transform.position == chasePositions[currentPoint].position)
+        //    {
+        //        currentPoint++;
+        //        isMoving = false;
+        //    }
+    }
+
+    #endregion
+
+    #region EscapePod
+
+    #endregion
+}
