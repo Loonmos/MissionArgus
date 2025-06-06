@@ -14,13 +14,14 @@ public class ItemPickup : MonoBehaviour
     public bool inInventory;
     public string itemName;
     public float spriteChangeDistance;
-    public GameObject itemLight;
+    public GameObject itemLight, interactIcon;
 
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = item1;
         itemLight.SetActive(false);
+        interactIcon.SetActive(false);
     }
 
     void Update()
@@ -32,11 +33,13 @@ public class ItemPickup : MonoBehaviour
         {
             spriteRenderer.sprite = item2;
             itemLight.SetActive(true);
+            interactIcon.SetActive(true);
         }
         else if (playerDistance >= spriteChangeDistance && spriteRenderer.sprite != item1)
         {
             spriteRenderer.sprite = item1;
             itemLight.SetActive(false);
+            interactIcon.SetActive(false);
         }
 
         if (spriteRenderer.sprite == item2 && Input.GetKeyDown(KeyCode.E))
