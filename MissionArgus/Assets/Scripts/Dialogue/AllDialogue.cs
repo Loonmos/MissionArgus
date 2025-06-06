@@ -20,6 +20,7 @@ public class AllDialogue : MonoBehaviour
     public GameObject screenMark;
     public TextMeshProUGUI textMark;
     public Animator animMark;
+    public Animator mainAnimMark;
     public GameObject mark;
 
     [Header("State Machine")]
@@ -34,7 +35,8 @@ public class AllDialogue : MonoBehaviour
                         Nav1, Nav2,
                         Mark1d1, Player1d2, Mark1d3, Player1d4, Mark1d5, Player1d6, Player1d7, Mark1d8, Mark1d9, Mark1d10, Mark1d11,
                         Mark2d1, Mark2d2, Mark2d3, Mark2d4, Player2d5, Mark2d6, Mark2d7, Mark2d8, Mark2d9, Mark2d10, Mark2d11, Mark2d12, Mark2d13,
-                        M30, P30, M31, 
+                        Jump1, Jump2,
+                        Mark3d1, Mark3d2, Mark3d3,
                         Chase,
                         Pod1}
     public State state = State.Ship1;
@@ -52,6 +54,20 @@ public class AllDialogue : MonoBehaviour
     public PlayableDirector chaseTimeline;
     public Door greydoor1;
     public Door greydoor2;
+    public Door greydoor3;
+    public Door greydoor4;
+    public Door greydoor5;
+
+    public PlayerInventory playerInv;
+    public string wire1;
+    public string wire2;
+
+    public GameObject saveColliders;
+    public SaveAndLoad saveLoad;
+    public Transform chaseSavePoint;
+
+    public GameObject chaseEnemy;
+    public Transform chaseEnemyPos;
 
     [Header("Mark Positions")]
     public Transform markPosEvent2;
@@ -80,8 +96,11 @@ public class AllDialogue : MonoBehaviour
         finishedDialogue3 = false;
         mark.SetActive(true);
         playerMovement.enabled = true;
+        
         greydoor1.enabled = true;
         greydoor2.enabled = true;
+
+        chaseEnemy.SetActive(false);
     }
 
     void Update()
@@ -106,6 +125,11 @@ public class AllDialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             state = State.Chase;
+        }
+
+        if (playerInv.keyItems.ContainsKey(wire1) && playerInv.keyItems.ContainsKey(wire2))
+        {
+            Transition2to3();
         }
     }
 
@@ -149,9 +173,12 @@ public class AllDialogue : MonoBehaviour
             case State.Mark2d12: Mark2d12(); break;
             case State.Mark2d13: Mark2d13(); break;
 
-            case State.M30: M30(); break;
-            case State.P30: P30(); break;
-            case State.M31: M31(); break;
+            case State.Jump1: Jump1(); break;
+            case State.Jump2: Jump2(); break;
+
+            case State.Mark3d1: Mark3d1(); break;
+            case State.Mark3d2: Mark3d2(); break;
+            case State.Mark3d3: Mark3d3(); break;
 
             case State.Chase: Chase(); break;
         }
@@ -447,7 +474,7 @@ public class AllDialogue : MonoBehaviour
 
     public void Transition1to2()
     {
-        mark.transform.DOMove(markPosEvent2.position, 1);
+        mark.transform.DOMove(markPosEvent2.position, 0.1f);
         triggerMark1.SetActive(false);
         triggerMark2.SetActive(true);
     }
@@ -677,6 +704,39 @@ public class AllDialogue : MonoBehaviour
 
     #endregion
 
+    #region JumpUnlock
+
+    public void ActivateJumpText()
+    {
+        state = State.Jump1;
+    }
+
+    private void Jump1()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Oh wow, some spare booster boots.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Jump2;
+        }
+    }
+
+    private void Jump2()
+    {
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("I can use these to jump by pressing the Spacebar.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    #endregion
+
     public void Transition2to3()
     {
         //move mark
@@ -690,57 +750,57 @@ public class AllDialogue : MonoBehaviour
     {
         if (!finishedDialogue3)
         {
-            state = State.M30;
-        }
-        else
-        {
-            state = State.M31;
+            state = State.Mark3d1;
         }
     }
 
-    private void M30()
+    private void Mark3d1()
     {
         playerMovement.enabled = false;
         playerRb.velocity = new Vector2(0, 0);
         animPlayer.SetBool("Walking", false);
         screenMark.SetActive(true);
         screenPlayer.SetActive(false);
-        textMark.SetText("This is event 3");
+        textMark.SetText("You got the wires? You're a legend, bud!");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
             cooldown = 0;
-            state = State.P30;
+            state = State.Mark3d2;
         }
     }
 
-    private void P30()
+    private void Mark3d2()
     {
         playerMovement.enabled = false;
         playerRb.velocity = new Vector2(0, 0);
-        screenMark.SetActive(false);
-        screenPlayer.SetActive(true);
-        textPlayer.SetText("This is player response 3");
+        animPlayer.SetBool("Walking", false);
+        screenMark.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark.SetText("Now all we have to do is-");
+
+        chaseEnemy.SetActive(true);
+        chaseEnemy.transform.DOMove(chaseEnemyPos.position, 3).SetEase(Ease.InSine);
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
             cooldown = 0;
-            state = State.M31;
+            state = State.Mark3d3;
         }
     }
 
-    private void M31()
+    private void Mark3d3()
     {
+        playerMovement.enabled = true;
+        animPlayer.SetBool("Walking", false);
         screenMark.SetActive(true);
         screenPlayer.SetActive(false);
-        textMark.SetText("This is the end text 3");
+        textMark.SetText("OH FUCK RUN!!!");
 
-        finishedDialogue3 = true;
-
-        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        if (cooldown >= 1)
         {
             cooldown = 0;
-            state = State.Nothing;
+            ActivateChase();
         }
     }
 
@@ -748,31 +808,24 @@ public class AllDialogue : MonoBehaviour
 
     #region Chase
 
+    public void ActivateChase()
+    {
+        saveColliders.SetActive(false);
+        saveLoad.SavePosition(chaseSavePoint);
+        screenMark.SetActive(false);
+
+        state = State.Chase;
+    }
+
     private void Chase()
     {
-
         chaseTimeline.Play();
-        greydoor1.enabled = false;
-        greydoor2.enabled = false;
 
-    //    if (!isMoving)
-    //    {
-    //        isMoving = true;
-
-        //        //before move
-        //        markDistance = Vector3.Distance(mark.transform.position, chasePositions[currentPoint].transform.position); //calculate the distance
-        //        float duration = markDistance / markSpeed; //calculate duration
-
-        //        //then
-        //        mark.transform.DOMove(chasePositions[currentPoint].position, duration);
-        //    }
-
-        //    //after
-        //    if (mark.transform.position == chasePositions[currentPoint].position)
-        //    {
-        //        currentPoint++;
-        //        isMoving = false;
-        //    }
+        greydoor1.closesAuto = false;
+        greydoor2.closesAuto = false;
+        greydoor3.closesAuto = false;
+        greydoor4.closesAuto = false;
+        greydoor5.closesAuto = false;
     }
 
     #endregion
