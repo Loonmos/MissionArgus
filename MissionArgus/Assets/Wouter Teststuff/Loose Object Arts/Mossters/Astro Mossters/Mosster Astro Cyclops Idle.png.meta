@@ -131,14 +131,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d6daa5f32bd87a43b64f6ad7a69f8a1
-      internalID: -1138310231
+      spriteID: b0a00c1f6275c0948991c931dc3b0b37
+      internalID: 1843430884
       vertices: []
       indices: 
       edges: []
@@ -152,14 +152,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0073ff31dff62374cb382e0b0d96076a
-      internalID: 354443249
+      spriteID: 831a22b6f38499f44b0a11124f5d3d4e
+      internalID: -1445479625
       vertices: []
       indices: 
       edges: []
@@ -173,14 +173,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4679257547ae52c47a64d4a1145280e5
-      internalID: -1836242598
+      spriteID: 92895d39544e3c042a1b78b74780b011
+      internalID: 2032254462
       vertices: []
       indices: 
       edges: []
@@ -194,14 +194,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b17eaf2442f37b4e9ffcfcca357b409
-      internalID: 1373731117
+      spriteID: a14d4fe1a3dbb10469edcb8b9c26c5e2
+      internalID: 873585295
       vertices: []
       indices: 
       edges: []
@@ -215,14 +215,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 561d76feb7314b94da48c58707b97f63
-      internalID: -498449597
+      spriteID: ff187208528f1154eba50891264dc684
+      internalID: 1853741570
       vertices: []
       indices: 
       edges: []
@@ -236,14 +236,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df23df181597f344280d0cd820aa1342
-      internalID: 1059435488
+      spriteID: 3f45b8ae7f1933c47b4f02b1167bb3cd
+      internalID: -50041142
       vertices: []
       indices: 
       edges: []
@@ -257,14 +257,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bc8341e667dc3e4fad3eacaab483ee8
-      internalID: -1866627820
+      spriteID: e9cc800362035704190708c1a777e3fc
+      internalID: 232855175
       vertices: []
       indices: 
       edges: []
@@ -280,13 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mosster Astro Cyclops Idle_0: -1138310231
-      Mosster Astro Cyclops Idle_1: 354443249
-      Mosster Astro Cyclops Idle_2: -1836242598
-      Mosster Astro Cyclops Idle_3: 1373731117
-      Mosster Astro Cyclops Idle_4: -498449597
-      Mosster Astro Cyclops Idle_5: 1059435488
-      Mosster Astro Cyclops Idle_6: -1866627820
+      Mosster Astro Cyclops Idle_0: 1843430884
+      Mosster Astro Cyclops Idle_1: -1445479625
+      Mosster Astro Cyclops Idle_2: 2032254462
+      Mosster Astro Cyclops Idle_3: 873585295
+      Mosster Astro Cyclops Idle_4: 1853741570
+      Mosster Astro Cyclops Idle_5: -50041142
+      Mosster Astro Cyclops Idle_6: 232855175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
