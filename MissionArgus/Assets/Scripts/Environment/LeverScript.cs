@@ -16,12 +16,14 @@ public class LeverScript : MonoBehaviour, IActivatable
     private int leversPulled;
     public GameObject itemLight;
     public AudioSource audioSource;
+    public GameObject interactIcon;
 
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = unInteractable;
         itemLight.SetActive(false);
+        interactIcon.SetActive(false);
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -34,11 +36,13 @@ public class LeverScript : MonoBehaviour, IActivatable
         {
             spriteRenderer.sprite = Interactable;
             itemLight.SetActive(true);
+            interactIcon.SetActive(true);
         }
         else if (playerDistance >= 2 && spriteRenderer.sprite != unInteractable && canBeFlipped)
         {
             spriteRenderer.sprite = unInteractable;
             itemLight.SetActive(false);
+            interactIcon.SetActive(false);
         }
 
         if (spriteRenderer.sprite == Interactable && Input.GetKeyDown(KeyCode.E) && canBeFlipped)
@@ -48,6 +52,7 @@ public class LeverScript : MonoBehaviour, IActivatable
                 lightsOff.SetActive(false);
                 lightsOn.SetActive(true);
                 itemLight.SetActive(false);
+                interactIcon.SetActive(false);
             }
             audioSource.Play();
             spriteRenderer.sprite = flipped;
