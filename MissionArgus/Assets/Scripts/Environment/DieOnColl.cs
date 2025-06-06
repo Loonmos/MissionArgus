@@ -6,6 +6,7 @@ public class DieOnColl : MonoBehaviour
 {
     public GameObject player;
     public PlayerHealth playerHealth;
+    public AllDialogue dialogue;
 
     private void Start()
     {
@@ -14,6 +15,14 @@ public class DieOnColl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        playerHealth.ObstacleDeath();
+        if (!dialogue.isChasing)
+        {
+            playerHealth.ObstacleDeath();
+        }
+        else if (dialogue.isChasing)
+        {
+            dialogue.ChaseFail();
+        }
+        
     }
 }

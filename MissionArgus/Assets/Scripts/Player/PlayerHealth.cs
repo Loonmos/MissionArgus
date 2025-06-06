@@ -25,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
     public float particleTime;
 
+    public AllDialogue dialogue;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement2DPlatformer>();
@@ -81,12 +83,19 @@ public class PlayerHealth : MonoBehaviour
         {
 
         }
-        else if (!isDead)
+        else if (!isDead && !dialogue.isChasing)
         {
             isDead = true;
             rb.velocity = new Vector2(0, 0);
             playerMovement.enabled = false;
             StartCoroutine(Death());
+        }
+        else if (!isDead && dialogue.isChasing)
+        {
+            isDead = true;
+            rb.velocity = new Vector2(0, 0);
+            playerMovement.enabled = false;
+            dialogue.ChaseFail();
         }
     }
 
@@ -121,6 +130,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.enabled = true;
         saveLoad.LoadPosition();
         currentHealth = 100;
+        isDead = false;
     }
 
     IEnumerator Death()
