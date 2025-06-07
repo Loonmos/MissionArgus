@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 711b41434a9ed0d48aa50fabbb39d4f6
+guid: b9750f524e6bb7b45995be1ce59d96ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mosster2_0
+      name: MossterTop1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +131,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46f7e75be5713834a8bcce486799be70
-      internalID: 250487518
+      spriteID: 3022ad927646c1c4386d1f881740eb5f
+      internalID: -1026689898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_1
+      name: MossterTop1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -152,20 +152,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f0f1cf4bff06b43b8a8f3ce2cbcaa3
-      internalID: -357977439
+      spriteID: eaccd6b42fe8d4d4289e00117e40c8be
+      internalID: -621944647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_2
+      name: MossterTop1_2
       rect:
         serializedVersion: 2
         x: 32
@@ -173,20 +173,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6854150d4824dd849a4e864d9a1dc099
-      internalID: 796568646
+      spriteID: e28768f3698bc3544a05ce335c231a2b
+      internalID: -2085810735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_3
+      name: MossterTop1_3
       rect:
         serializedVersion: 2
         x: 48
@@ -194,20 +194,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a465635f494859245a0c92ba7c6073c8
-      internalID: 24345848
+      spriteID: 8acb2b9c1ad6b1a4f99f718454930320
+      internalID: 1868318151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_4
+      name: MossterTop1_4
       rect:
         serializedVersion: 2
         x: 64
@@ -215,20 +215,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b168045df98e66940a68b588641000fd
-      internalID: 289114662
+      spriteID: 9afe8245c0f816746a7a8fa594193ec0
+      internalID: 1214554574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_5
+      name: MossterTop1_5
       rect:
         serializedVersion: 2
         x: 80
@@ -236,20 +236,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 126637f737a50d54f9994a8e2f9ca113
-      internalID: 1434662647
+      spriteID: 8feba231c85aaf54fba4fefacaa1f064
+      internalID: 173582163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_6
+      name: MossterTop1_6
       rect:
         serializedVersion: 2
         x: 96
@@ -257,20 +257,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a15f0c7ee1e50e4f8f8a4dc98a34cd8
-      internalID: -1107487275
+      spriteID: 8a4a3bc1af6c05b44990178545e84885
+      internalID: 1987463826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_7
+      name: MossterTop1_7
       rect:
         serializedVersion: 2
         x: 112
@@ -278,20 +278,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f60bbbf09f8d24d439780ab4f4f33abb
-      internalID: 1235921474
+      spriteID: 507ef8fa475b118469a2d6ceafb23f02
+      internalID: 818682497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_8
+      name: MossterTop1_8
       rect:
         serializedVersion: 2
         x: 128
@@ -299,20 +299,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c8cdbb4e21398d41a9cb431e564e17a
-      internalID: -789083472
+      spriteID: e19e973d9a4318a4eb9972799e52f357
+      internalID: -1924024368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_9
+      name: MossterTop1_9
       rect:
         serializedVersion: 2
         x: 144
@@ -320,20 +320,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97d3da88f0d8b1f48940e9e3dcd892dc
-      internalID: -1409758145
+      spriteID: 44134d0648eb3014986e2f3d39047748
+      internalID: -2139135882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_10
+      name: MossterTop1_10
       rect:
         serializedVersion: 2
         x: 160
@@ -341,20 +341,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5d82b911feb3a94497ca11491bfb086
-      internalID: -508331371
+      spriteID: c22502501fd1f0d4b8635a3d613df92a
+      internalID: 360055532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_11
+      name: MossterTop1_11
       rect:
         serializedVersion: 2
         x: 176
@@ -362,20 +362,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15cebee17e1affc479eb9e541d727a42
-      internalID: -1277875920
+      spriteID: b41addb70f2bee94ba8ce4ea0d4fe362
+      internalID: 425763432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_12
+      name: MossterTop1_12
       rect:
         serializedVersion: 2
         x: 192
@@ -383,20 +383,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e44f720879433f244a11ce0ef2ae6b7c
-      internalID: -1027911526
+      spriteID: 94d99bc92e40da54b855b2cfa879a2e8
+      internalID: -933785878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_13
+      name: MossterTop1_13
       rect:
         serializedVersion: 2
         x: 208
@@ -404,20 +404,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cbfeb243e52c8d479de65d5d51f893d
-      internalID: 808730526
+      spriteID: 014c9abf7db11b84c88d54f6290b8775
+      internalID: -671400071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_14
+      name: MossterTop1_14
       rect:
         serializedVersion: 2
         x: 224
@@ -425,20 +425,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f36091be9acfb74889ef0208352c18f
-      internalID: 1472274235
+      spriteID: 9841b006867674543a27ddc4449a4881
+      internalID: -664601130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_15
+      name: MossterTop1_15
       rect:
         serializedVersion: 2
         x: 240
@@ -446,20 +446,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0c7b9e6502fcd14197b7cf4a9e6f9ca
-      internalID: 97679497
+      spriteID: 53ad355482166424cb151893587af91a
+      internalID: 1505123872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_16
+      name: MossterTop1_16
       rect:
         serializedVersion: 2
         x: 256
@@ -467,20 +467,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 122d0ebdfec6f7c438f89ed740a44b81
-      internalID: -618450431
+      spriteID: e4173b173fd7f5a46a96ad3af76f5586
+      internalID: -556803132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_17
+      name: MossterTop1_17
       rect:
         serializedVersion: 2
         x: 272
@@ -488,20 +488,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54541a00393e0254a9cc5f2f964172f5
-      internalID: -542352039
+      spriteID: 15ececec7f8ea6044a9bb1c6d1416889
+      internalID: -57724653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_18
+      name: MossterTop1_18
       rect:
         serializedVersion: 2
         x: 288
@@ -509,20 +509,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aaf0168d53189b4694c3e6b4164d769
-      internalID: -1164891322
+      spriteID: 605dcda6e3f0eea47b03bfd639ca32e8
+      internalID: -633885624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_19
+      name: MossterTop1_19
       rect:
         serializedVersion: 2
         x: 304
@@ -530,20 +530,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bc2c18c072b6744290bfc7fcd781f43
-      internalID: 1621385230
+      spriteID: 6890531c3976743478899c93fb017de8
+      internalID: 314128665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_20
+      name: MossterTop1_20
       rect:
         serializedVersion: 2
         x: 320
@@ -551,20 +551,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa23c2f0345081f4f8461f2d61f10428
-      internalID: 272954101
+      spriteID: eb3c86f1ca56173408d07302ce1a0ba4
+      internalID: 408728822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_21
+      name: MossterTop1_21
       rect:
         serializedVersion: 2
         x: 336
@@ -572,20 +572,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f1956efe17fc084b8952c3fbf3e4191
-      internalID: -1687801570
+      spriteID: 212674a8bc800c444ae7a9caa41cbe40
+      internalID: -437371073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_22
+      name: MossterTop1_22
       rect:
         serializedVersion: 2
         x: 352
@@ -593,20 +593,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 721cb56f4107bcd4db7eebdc0100dca1
-      internalID: 1906094870
+      spriteID: b9df798ad140b8e448230f6c42837802
+      internalID: -870545054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_23
+      name: MossterTop1_23
       rect:
         serializedVersion: 2
         x: 368
@@ -614,20 +614,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf3d9989fa7922c4e9e3ef34d179e2f1
-      internalID: -1991315240
+      spriteID: 7217b86396dfbab449b5ee9f2e6e5dec
+      internalID: -1708613244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_24
+      name: MossterTop1_24
       rect:
         serializedVersion: 2
         x: 384
@@ -635,20 +635,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7cfc114f83ac194688a92d44336cfb9
-      internalID: -1981364532
+      spriteID: c3ec62b31ff102b40b4ce1c52fb00e43
+      internalID: 1269498535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_25
+      name: MossterTop1_25
       rect:
         serializedVersion: 2
         x: 400
@@ -656,20 +656,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62025ffdd0476a04a957251784edd421
-      internalID: 1544029233
+      spriteID: a67ff5716ec15a740ad21202fdd6087a
+      internalID: 611940571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_26
+      name: MossterTop1_26
       rect:
         serializedVersion: 2
         x: 416
@@ -677,20 +677,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd54dfb49a306574b80160760d5675f4
-      internalID: 1040764385
+      spriteID: 9fef1faf4faa82844a92bd4d86e24a3a
+      internalID: 369313677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_27
+      name: MossterTop1_27
       rect:
         serializedVersion: 2
         x: 432
@@ -698,20 +698,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1680533ca69c966438d82b43b9e9db50
-      internalID: -1790763293
+      spriteID: 23bcb4d86c6b72d43879ce2a3da988c4
+      internalID: 526944640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_28
+      name: MossterTop1_28
       rect:
         serializedVersion: 2
         x: 448
@@ -719,20 +719,146 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e71ca4794eae9494ca22a225550ae0e4
-      internalID: 1398143211
+      spriteID: e221c64e1f2e0ec46a090196bf5846ca
+      internalID: 1037181122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_29
+      name: MossterTop1_29
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50417143e00d9d54da8d4b3971c2e400
+      internalID: 1946470849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_30
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694e1243e41f6144dac3486220df970f
+      internalID: 1004024987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_31
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca041140e67c12846bde75e50b58aec7
+      internalID: 2003458012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_32
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87b7cb0c6b4b3b408a94782d43bc08b
+      internalID: 235145664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_33
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b3a4f3b7a3f3f46a0e3301850a75de
+      internalID: 384916084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_34
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a005b6bd07c712a46999fd385e38e7f8
+      internalID: 1941345225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_35
       rect:
         serializedVersion: 2
         x: 0
@@ -740,20 +866,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee9364d38b95e44ba59f7816d653399
-      internalID: -1668396892
+      spriteID: 0a710c232eb2daf4a869e6a55d765cea
+      internalID: 440431045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_30
+      name: MossterTop1_36
       rect:
         serializedVersion: 2
         x: 16
@@ -761,20 +887,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 430440fae60037b408487eb9b4aad86b
-      internalID: -1987969135
+      spriteID: aadaeef25a1dda14ca3053701df59745
+      internalID: 563602266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_31
+      name: MossterTop1_37
       rect:
         serializedVersion: 2
         x: 32
@@ -782,20 +908,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 262a8d5873a4eca4ab3ba5a802a74285
-      internalID: -637724265
+      spriteID: eff109a08265987478b2e5bc39b526a2
+      internalID: -575189970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_32
+      name: MossterTop1_38
       rect:
         serializedVersion: 2
         x: 48
@@ -803,20 +929,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13d84665919c142499305c4a4255dffc
-      internalID: 1637903373
+      spriteID: 5702070bb9fbc6442a1433529a0d4a91
+      internalID: -497722135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_33
+      name: MossterTop1_39
       rect:
         serializedVersion: 2
         x: 64
@@ -824,20 +950,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02c02d379900bf5409810b72f0b2590f
-      internalID: 1349889022
+      spriteID: 5d35a286b08cac34abe55f665aa3646a
+      internalID: 1290534573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_34
+      name: MossterTop1_40
       rect:
         serializedVersion: 2
         x: 80
@@ -845,20 +971,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f692166c09e8ecb409307c47a6db5249
-      internalID: -554019663
+      spriteID: 46038e84e6c366e46ac1994f71b10166
+      internalID: 854979219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_35
+      name: MossterTop1_41
       rect:
         serializedVersion: 2
         x: 96
@@ -866,20 +992,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c22e0cb6169061647ae4f301a669374f
-      internalID: -1017966484
+      spriteID: 362e34372cc481a41b9e493eb9ad11cd
+      internalID: 358687083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_36
+      name: MossterTop1_42
       rect:
         serializedVersion: 2
         x: 112
@@ -887,20 +1013,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b5cb539ff79a847b1c7a0880b79eff
-      internalID: 77801500
+      spriteID: bb7e5da8c3d72cc4f81ac45e57dc7dba
+      internalID: 242275517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_37
+      name: MossterTop1_43
       rect:
         serializedVersion: 2
         x: 128
@@ -908,20 +1034,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f461007d33298c47af768eddc7abea6
-      internalID: -252688398
+      spriteID: 55beda698803cfa4f98c539d8685c675
+      internalID: 43709114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_38
+      name: MossterTop1_44
       rect:
         serializedVersion: 2
         x: 144
@@ -929,20 +1055,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea4944eb97f6fd940a0f2bcd2f3d0c45
-      internalID: 2003647637
+      spriteID: b1168582ee6dc7342bf8ad2f5970d81b
+      internalID: 631023894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_39
+      name: MossterTop1_45
       rect:
         serializedVersion: 2
         x: 160
@@ -950,20 +1076,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0dcf55a0592d8e4c9317ce59b0ed1a1
-      internalID: 376109526
+      spriteID: 22bf6d500d904594e81658da69283566
+      internalID: 1637202538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_40
+      name: MossterTop1_46
       rect:
         serializedVersion: 2
         x: 176
@@ -971,20 +1097,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 883fc6a83204ac247bac0289567f922a
-      internalID: 1412254845
+      spriteID: c95620a0721a70640b7a2c84819154de
+      internalID: -698524693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_41
+      name: MossterTop1_47
       rect:
         serializedVersion: 2
         x: 192
@@ -992,20 +1118,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1988cc4feceedf4884467b55d127af9
-      internalID: -1023348984
+      spriteID: b92f246a32315ed40823bd2b94e0b893
+      internalID: -1774454507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_42
+      name: MossterTop1_48
       rect:
         serializedVersion: 2
         x: 208
@@ -1013,20 +1139,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29668a664306ed4479e62c661b0217c8
-      internalID: -2049490900
+      spriteID: 739031d4449899e488d3c810c6488b80
+      internalID: -79714909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_43
+      name: MossterTop1_49
       rect:
         serializedVersion: 2
         x: 224
@@ -1034,20 +1160,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a0823f2121245f458ac3104eb393cbb
-      internalID: 9944593
+      spriteID: 93da9b85ad443964cbc7e875476be7dd
+      internalID: -224544585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_44
+      name: MossterTop1_50
       rect:
         serializedVersion: 2
         x: 240
@@ -1055,20 +1181,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bb53beb2bd5eca4291b26b39c638122
-      internalID: 482450718
+      spriteID: 9fee5fb534eaf794e9d28172b0fc951b
+      internalID: -537820421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_45
+      name: MossterTop1_51
       rect:
         serializedVersion: 2
         x: 256
@@ -1076,20 +1202,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab9f85e25718e9741a7e2cc1cabb5c01
-      internalID: 1104427422
+      spriteID: 69f7550de62ff874d834a76b07622419
+      internalID: -1711423127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_46
+      name: MossterTop1_52
       rect:
         serializedVersion: 2
         x: 272
@@ -1097,20 +1223,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c02424d0c75150c4eb74cd971c2ab24e
-      internalID: 1522717063
+      spriteID: 6eebf315c132ea946ae55dbc3ca1777e
+      internalID: -1813835905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_47
+      name: MossterTop1_53
       rect:
         serializedVersion: 2
         x: 288
@@ -1118,20 +1244,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9de804c4cf325c04daec459ffd225648
-      internalID: -849472329
+      spriteID: 49faf6547d9003e4cb4379941c02e86e
+      internalID: -879454514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_48
+      name: MossterTop1_54
       rect:
         serializedVersion: 2
         x: 304
@@ -1139,20 +1265,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2863ead3b5950c44088e90fe18142d1a
-      internalID: -1683307672
+      spriteID: 9292dc30c81c72a49b6fa99228a29eec
+      internalID: -144463922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_49
+      name: MossterTop1_55
       rect:
         serializedVersion: 2
         x: 320
@@ -1160,20 +1286,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8e5999a75a09748b6b9bcbb2855feb
-      internalID: 1127983112
+      spriteID: 0401808d7634b7040aefe33008f45708
+      internalID: 1442804255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_50
+      name: MossterTop1_56
       rect:
         serializedVersion: 2
         x: 336
@@ -1181,20 +1307,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98e90564b35a7624c87a32a34753144c
-      internalID: 979905606
+      spriteID: c5e6e6ca14a584f49843a0b07efbca66
+      internalID: 1767854823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_51
+      name: MossterTop1_57
       rect:
         serializedVersion: 2
         x: 352
@@ -1202,20 +1328,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27f78e145072ff849a5de8f0f32c273b
-      internalID: -729455203
+      spriteID: 4b15d40c045a17b44830ac61fb469e63
+      internalID: 1522105071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_52
+      name: MossterTop1_58
       rect:
         serializedVersion: 2
         x: 368
@@ -1223,20 +1349,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d133016a433934b46be3ee4f39fc366c
-      internalID: -798644800
+      spriteID: b699bbfb99dd0144aa1e10a5e2b54092
+      internalID: -190400150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_53
+      name: MossterTop1_59
       rect:
         serializedVersion: 2
         x: 384
@@ -1244,20 +1370,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39cd240eaddd31044ae34a686b14cde8
-      internalID: 1443923903
+      spriteID: 14f3ec8dcfb40a94b982bc6106bd30e2
+      internalID: 1180740174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_54
+      name: MossterTop1_60
       rect:
         serializedVersion: 2
         x: 400
@@ -1265,20 +1391,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f1094730171d204392229ad4c35ca2e
-      internalID: -142723505
+      spriteID: 60b2910d2c1ecbc4b84a55da99bfd231
+      internalID: -1563957326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_55
+      name: MossterTop1_61
       rect:
         serializedVersion: 2
         x: 416
@@ -1286,20 +1412,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32d85432ad814b34ba300ceeabc2786e
-      internalID: 1175765520
+      spriteID: bfccff9f4bb82814096022a4cf7057af
+      internalID: 1124066543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_56
+      name: MossterTop1_62
       rect:
         serializedVersion: 2
         x: 432
@@ -1307,20 +1433,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81ccb76c76f89b94982338a6780d4dbd
-      internalID: -230440555
+      spriteID: 7408e94ed9db4f149a6f6a7571efa104
+      internalID: -734285396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mosster2_57
+      name: MossterTop1_63
       rect:
         serializedVersion: 2
         x: 448
@@ -1328,14 +1454,140 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bd5ee22715ace149bbc1f86e4a892cc
-      internalID: 1256681625
+      spriteID: 5c7ba95ba2d906c4bb84498cf46a8272
+      internalID: 2102308299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_64
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e56bb5544bdf5c439b49a85786a1922
+      internalID: 2048952077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_65
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98e0f6dbe740bc47a78a59a29138534
+      internalID: 1037223349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_66
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a093415e754a0294c8047e29f9e950bb
+      internalID: -851593690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_67
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7f0ec81673c4542b51450b3c286d54
+      internalID: -72074720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_68
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81e210509c2d624cae8eb01b5102b2f
+      internalID: 900802408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MossterTop1_69
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d483c43733d66469c714029bd3d145
+      internalID: -1923216401
       vertices: []
       indices: 
       edges: []
@@ -1351,64 +1603,76 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mosster2_0: 250487518
-      Mosster2_1: -357977439
-      Mosster2_10: -508331371
-      Mosster2_11: -1277875920
-      Mosster2_12: -1027911526
-      Mosster2_13: 808730526
-      Mosster2_14: 1472274235
-      Mosster2_15: 97679497
-      Mosster2_16: -618450431
-      Mosster2_17: -542352039
-      Mosster2_18: -1164891322
-      Mosster2_19: 1621385230
-      Mosster2_2: 796568646
-      Mosster2_20: 272954101
-      Mosster2_21: -1687801570
-      Mosster2_22: 1906094870
-      Mosster2_23: -1991315240
-      Mosster2_24: -1981364532
-      Mosster2_25: 1544029233
-      Mosster2_26: 1040764385
-      Mosster2_27: -1790763293
-      Mosster2_28: 1398143211
-      Mosster2_29: -1668396892
-      Mosster2_3: 24345848
-      Mosster2_30: -1987969135
-      Mosster2_31: -637724265
-      Mosster2_32: 1637903373
-      Mosster2_33: 1349889022
-      Mosster2_34: -554019663
-      Mosster2_35: -1017966484
-      Mosster2_36: 77801500
-      Mosster2_37: -252688398
-      Mosster2_38: 2003647637
-      Mosster2_39: 376109526
-      Mosster2_4: 289114662
-      Mosster2_40: 1412254845
-      Mosster2_41: -1023348984
-      Mosster2_42: -2049490900
-      Mosster2_43: 9944593
-      Mosster2_44: 482450718
-      Mosster2_45: 1104427422
-      Mosster2_46: 1522717063
-      Mosster2_47: -849472329
-      Mosster2_48: -1683307672
-      Mosster2_49: 1127983112
-      Mosster2_5: 1434662647
-      Mosster2_50: 979905606
-      Mosster2_51: -729455203
-      Mosster2_52: -798644800
-      Mosster2_53: 1443923903
-      Mosster2_54: -142723505
-      Mosster2_55: 1175765520
-      Mosster2_56: -230440555
-      Mosster2_57: 1256681625
-      Mosster2_6: -1107487275
-      Mosster2_7: 1235921474
-      Mosster2_8: -789083472
-      Mosster2_9: -1409758145
+      MossterTop1_0: -1026689898
+      MossterTop1_1: -621944647
+      MossterTop1_10: 360055532
+      MossterTop1_11: 425763432
+      MossterTop1_12: -933785878
+      MossterTop1_13: -671400071
+      MossterTop1_14: -664601130
+      MossterTop1_15: 1505123872
+      MossterTop1_16: -556803132
+      MossterTop1_17: -57724653
+      MossterTop1_18: -633885624
+      MossterTop1_19: 314128665
+      MossterTop1_2: -2085810735
+      MossterTop1_20: 408728822
+      MossterTop1_21: -437371073
+      MossterTop1_22: -870545054
+      MossterTop1_23: -1708613244
+      MossterTop1_24: 1269498535
+      MossterTop1_25: 611940571
+      MossterTop1_26: 369313677
+      MossterTop1_27: 526944640
+      MossterTop1_28: 1037181122
+      MossterTop1_29: 1946470849
+      MossterTop1_3: 1868318151
+      MossterTop1_30: 1004024987
+      MossterTop1_31: 2003458012
+      MossterTop1_32: 235145664
+      MossterTop1_33: 384916084
+      MossterTop1_34: 1941345225
+      MossterTop1_35: 440431045
+      MossterTop1_36: 563602266
+      MossterTop1_37: -575189970
+      MossterTop1_38: -497722135
+      MossterTop1_39: 1290534573
+      MossterTop1_4: 1214554574
+      MossterTop1_40: 854979219
+      MossterTop1_41: 358687083
+      MossterTop1_42: 242275517
+      MossterTop1_43: 43709114
+      MossterTop1_44: 631023894
+      MossterTop1_45: 1637202538
+      MossterTop1_46: -698524693
+      MossterTop1_47: -1774454507
+      MossterTop1_48: -79714909
+      MossterTop1_49: -224544585
+      MossterTop1_5: 173582163
+      MossterTop1_50: -537820421
+      MossterTop1_51: -1711423127
+      MossterTop1_52: -1813835905
+      MossterTop1_53: -879454514
+      MossterTop1_54: -144463922
+      MossterTop1_55: 1442804255
+      MossterTop1_56: 1767854823
+      MossterTop1_57: 1522105071
+      MossterTop1_58: -190400150
+      MossterTop1_59: 1180740174
+      MossterTop1_6: 1987463826
+      MossterTop1_60: -1563957326
+      MossterTop1_61: 1124066543
+      MossterTop1_62: -734285396
+      MossterTop1_63: 2102308299
+      MossterTop1_64: 2048952077
+      MossterTop1_65: 1037223349
+      MossterTop1_66: -851593690
+      MossterTop1_67: -72074720
+      MossterTop1_68: 900802408
+      MossterTop1_69: -1923216401
+      MossterTop1_7: 818682497
+      MossterTop1_8: -1924024368
+      MossterTop1_9: -2139135882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
