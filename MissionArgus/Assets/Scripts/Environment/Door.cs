@@ -32,7 +32,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         playerDistance = (player.transform.position - transform.position).magnitude;
-        Debug.Log(playerDistance);
+        //Debug.Log(playerDistance);
 
         if (playerDistance <= minDoorDistance && !doorOpen && (player.keyItems.ContainsKey(neededKeycard) || neededKeycard == ""))
         {

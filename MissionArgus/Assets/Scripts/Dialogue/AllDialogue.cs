@@ -4,17 +4,20 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.Playables;
+using UnityTimer;
 
 public class AllDialogue : MonoBehaviour
 {
     #region Variables
 
     [Header("Player")]
+    public SpriteRenderer playerSprite;
     public GameObject screenPlayer;
     public TextMeshProUGUI textPlayer;
     public Animator animPlayer;
     public PlayerMovement2DPlatformer playerMovement;
     public Rigidbody2D playerRb;
+    public PlayerHealth playerHealth;
 
     [Header("Mark")]
     public GameObject screenMark;
@@ -22,6 +25,9 @@ public class AllDialogue : MonoBehaviour
     public Animator animMark;
     public Animator mainAnimMark;
     public GameObject mark;
+
+    public GameObject screenMark2;
+    public TextMeshProUGUI textMark2;
 
     [Header("State Machine")]
     private float cooldown = 0;
@@ -37,8 +43,10 @@ public class AllDialogue : MonoBehaviour
                         Mark2d1, Mark2d2, Mark2d3, Mark2d4, Player2d5, Mark2d6, Mark2d7, Mark2d8, Mark2d9, Mark2d10, Mark2d11, Mark2d12, Mark2d13,
                         Jump1, Jump2,
                         Mark3d1, Mark3d2, Mark3d3,
-                        Chase,
-                        Pod1}
+                        Chase, ChaseEnd,
+                        Player4d1, Mark4d2, Mark4d3, Player4d4,
+                        Pod1, Pod2, Pod3, Pod4, Pod5
+    }
     public State state = State.Ship1;
 
     [Header("Trigger Colliders")]
@@ -46,21 +54,28 @@ public class AllDialogue : MonoBehaviour
     public GameObject triggerMark1;
     public GameObject triggerMark2;
     public GameObject triggerMark3;
+    public GameObject triggerEndChase;
     public GameObject triggerPod;
 
     [Header("Other")]
     public GameObject greenCard;
+    public GameObject blueCard;
 
     public PlayableDirector chaseTimeline;
+    public PlayableDirector mossterEndBit;
     public Door greydoor1;
     public Door greydoor2;
     public Door greydoor3;
     public Door greydoor4;
     public Door greydoor5;
 
+    public GameObject door1;
+    public GameObject door2;
+
     public PlayerInventory playerInv;
     public string wire1;
     public string wire2;
+    public bool wireDone = false;
 
     public GameObject saveColliders;
     public SaveAndLoad saveLoad;
@@ -68,6 +83,19 @@ public class AllDialogue : MonoBehaviour
 
     public GameObject chaseEnemy;
     public Transform chaseEnemyPos;
+
+    public GameObject timerUI;
+    public Timer chaseTimer;
+    public TextMeshProUGUI timerText;
+
+    public Timer markTimer;
+
+    public bool markReady = false;
+    public bool playerReady = false;
+
+    public GameObject endScreen;
+
+    public bool isChasing = false;
 
     [Header("Mark Positions")]
     public Transform markPosEvent2;
@@ -101,6 +129,7 @@ public class AllDialogue : MonoBehaviour
         greydoor2.enabled = true;
 
         chaseEnemy.SetActive(false);
+        timerUI.SetActive(false);
     }
 
     void Update()
@@ -127,8 +156,9 @@ public class AllDialogue : MonoBehaviour
             state = State.Chase;
         }
 
-        if (playerInv.keyItems.ContainsKey(wire1) && playerInv.keyItems.ContainsKey(wire2))
+        if (playerInv.keyItems.ContainsKey(wire1) && playerInv.keyItems.ContainsKey(wire2) && !wireDone)
         {
+            wireDone = true;
             Transition2to3();
         }
     }
@@ -181,6 +211,18 @@ public class AllDialogue : MonoBehaviour
             case State.Mark3d3: Mark3d3(); break;
 
             case State.Chase: Chase(); break;
+            case State.ChaseEnd: ChaseEnd(); break;
+
+            case State.Player4d1: Player4d1(); break;
+            case State.Mark4d2: Mark4d2(); break;
+            case State.Mark4d3: Mark4d3(); break;
+            case State.Player4d4: Player4d4(); break;
+
+            case State.Pod1: Pod1(); break;
+            case State.Pod2: Pod2(); break;
+            case State.Pod3: Pod3(); break;
+            case State.Pod4: Pod4(); break;
+            case State.Pod5: Pod5(); break;
         }
     }
 
@@ -220,7 +262,7 @@ public class AllDialogue : MonoBehaviour
     private void Ship3()
     {
         screenPlayer.SetActive(true);
-        textPlayer.SetText("It seems like the artifical gravity generator is no longer working. Luckily I came prepared.");
+        textPlayer.SetText("It seems like the gravity generator is no longer working. Luckily I came prepared.");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
@@ -751,6 +793,7 @@ public class AllDialogue : MonoBehaviour
         if (!finishedDialogue3)
         {
             state = State.Mark3d1;
+            triggerMark3.SetActive(false);
         }
     }
 
@@ -759,6 +802,7 @@ public class AllDialogue : MonoBehaviour
         playerMovement.enabled = false;
         playerRb.velocity = new Vector2(0, 0);
         animPlayer.SetBool("Walking", false);
+        playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
         screenMark.SetActive(true);
         screenPlayer.SetActive(false);
         textMark.SetText("You got the wires? You're a legend, bud!");
@@ -780,9 +824,9 @@ public class AllDialogue : MonoBehaviour
         textMark.SetText("Now all we have to do is-");
 
         chaseEnemy.SetActive(true);
-        chaseEnemy.transform.DOMove(chaseEnemyPos.position, 3).SetEase(Ease.InSine);
+        chaseTimeline.Play();
 
-        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        if (cooldown >= 3)
         {
             cooldown = 0;
             state = State.Mark3d3;
@@ -813,24 +857,215 @@ public class AllDialogue : MonoBehaviour
         saveColliders.SetActive(false);
         saveLoad.SavePosition(chaseSavePoint);
         screenMark.SetActive(false);
+        triggerEndChase.SetActive(true);
 
         state = State.Chase;
-    }
-
-    private void Chase()
-    {
-        chaseTimeline.Play();
 
         greydoor1.closesAuto = false;
         greydoor2.closesAuto = false;
         greydoor3.closesAuto = false;
         greydoor4.closesAuto = false;
         greydoor5.closesAuto = false;
+
+        chaseTimer = Timer.Register(45f, ChaseFail);
+        markTimer = Timer.Register(33.2f, PutMarkReady);
+        timerUI.SetActive(true);
+        isChasing = true;
+    }
+
+    private void Chase()
+    {
+        float timeLeft = chaseTimer.GetTimeRemaining();
+        timerText.SetText("" + timeLeft.ToString("#.00"));
+    }
+
+    public void TriggerEndChase()
+    {
+        state = State.ChaseEnd;
+        chaseTimer.Cancel();
+        timerUI.SetActive(false);
+    }
+
+    private void ChaseEnd()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        playerReady = true;
+
+        if (playerReady && markReady)
+        {
+            cooldown = 0;
+            state = State.Player4d1;
+        }
+    }
+
+    private void Player4d1()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("What the fuck Mark?");
+
+        mossterEndBit.Play();
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark4d2;
+        }
+    }
+
+    private void Mark4d2()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark2.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark2.SetText("I'm sorry bud, ship's crowded enough as is.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Mark4d3;
+        }
+    }
+
+    private void Mark4d3()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark2.SetActive(true);
+        screenPlayer.SetActive(false);
+        textMark2.SetText("Good luck.");
+
+        //mark take-off
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Player4d4;
+        }
+    }
+
+    private void Player4d4()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        screenMark2.SetActive(false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Shit... Wait is that a keycard?");
+
+        blueCard.SetActive(true);
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Nothing;
+        }
+    }
+
+    public void ChaseFail()
+    {
+        isChasing = false;
+        playerHealth.ObstacleDeath();
+        chaseTimeline.Stop();
+        mossterEndBit.Stop();
+        chaseTimer.Cancel();
+        markTimer.Cancel();
+        timerUI.SetActive(false);
+        markReady = false;
+        mark.transform.DOMove(markPosEvent2.position, 0.1f);
+        finishedDialogue3 = true;
+        triggerMark3.SetActive(false);
+        state = State.Mark3d1;
+    }
+
+    private void PutMarkReady()
+    {
+        markReady = true;
+        door1.SetActive(true);
+        door2.SetActive(true);
     }
 
     #endregion
 
     #region EscapePod
+
+    public void TriggerEscapePod()
+    {
+        state = State.Pod1;
+    }
+
+    private void Pod1()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Oh my god...");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Pod2;
+        }
+    }
+
+    private void Pod2()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Fuck that guy.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Pod3;
+        }
+    }
+
+    private void Pod3()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("It looks like this escape pod is missing a couple of things.");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Pod4;
+        }
+    }
+
+    private void Pod4()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenPlayer.SetActive(true);
+        textPlayer.SetText("Maybe I can fix it up and get out?");
+
+        if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
+        {
+            cooldown = 0;
+            state = State.Pod5;
+        }
+    }
+
+    private void Pod5()
+    {
+        playerMovement.enabled = false;
+        playerRb.velocity = new Vector2(0, 0);
+        animPlayer.SetBool("Walking", false);
+        screenPlayer.SetActive(false);
+        endScreen.SetActive(true);
+    }
 
     #endregion
 }
