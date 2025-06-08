@@ -7,8 +7,7 @@ public class EnvironmentManager : MonoBehaviour, IActivatable
 {
     public int calledEvents;
 
-    public MarkDia1 mark1;
-    public MarkDia2 mark2;
+    public AllDialogue dialogue;
 
     void IActivatable.Activate()
     {
@@ -28,8 +27,7 @@ public class EnvironmentManager : MonoBehaviour, IActivatable
         //also where you would call your event for mark's dialogue. magic
         //also probably where we would play SFX for the lights turning on
 
-        mark1.RemoveMark1Trigger();
-        mark2.TriggerMarkMove1();
+        dialogue.Transition1to2();
         Debug.Log("gen event happens");
     }
 

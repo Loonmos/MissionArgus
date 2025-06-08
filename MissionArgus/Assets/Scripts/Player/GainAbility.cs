@@ -8,15 +8,57 @@ public class GainAbility : MonoBehaviour
     public GameObject boots;
     public GameObject particles;
     public Animator anim;
-    public DialogueSystem tut;
+    public AllDialogue dialogue;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float playerDistance;
+    public GameObject player;
+    public bool inInventory;
+    public float spriteChangeDistance;
+    public GameObject itemLight;
+
+    public bool pickedUp;
+
+    void Start()
     {
-        playerMovement.unlockedJump = true;
-        boots.SetActive(false);
-        particles.SetActive(false);
-        anim.Play("Ability");
-        tut.state = DialogueSystem.State.Jump1;
-        gameObject.SetActive(false);
+        itemLight.SetActive(false);
+        pickedUp = false;
     }
+
+    void Update()
+    {
+        if (inInventory) return;
+        playerDistance = (player.transform.position - transform.position).magnitude;
+
+        if (playerDistance <= spriteChangeDistance && !pickedUp)
+        {
+            itemLight.SetActive(true);
+        }
+        else if (playerDistance >= spriteChangeDistance && !pickedUp)
+        {
+            itemLight.SetActive(false);
+        }
+
+        if (playerDistance <= spriteChangeDistance && Input.GetKeyDown(KeyCode.E))
+        {
+            pickedUp = true;
+            Debug.Log("E registered");
+            playerMovement.unlockedJump = true;
+            boots.SetActive(false);
+            particles.SetActive(false);
+            itemLight.SetActive(false);
+            anim.Play("Ability");
+            dialogue.ActivateJumpText();
+            inInventory = true;
+        }
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    playerMovement.unlockedJump = true;
+    //    boots.SetActive(false);
+    //    particles.SetActive(false);
+    //    anim.Play("Ability");
+    //    dialogue.ActivateJumpText();
+    //    gameObject.SetActive(false);
+    //}
 }
