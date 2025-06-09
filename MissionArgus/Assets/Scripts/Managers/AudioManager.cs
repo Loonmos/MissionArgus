@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
             string screamToPlay = "scream" + whichScream.ToString();
             AudioSource audioSource = GetAudioSource(screamToPlay);
             audioSource.pitch = Random.Range(0.5f, 1.5f);
-            yield return new WaitForSeconds(Random.Range(30f, 35f));
+            yield return new WaitForSeconds(Random.Range(180f, 300f));
             PlayAudio(audioSource: audioSource);
         }
     }

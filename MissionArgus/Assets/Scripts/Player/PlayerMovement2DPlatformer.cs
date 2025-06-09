@@ -50,6 +50,7 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
     public Animator anim;
     public float velocityForAnim = 0.1f;
+    public float cornerBugKiller = 0.1f;
 
     public bool unlockedJump = false;
     [SerializeField] private bool isJumping;
@@ -82,7 +83,14 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
         if (isGroundedDown || isGroundedLeft || isGroundedRight || isGroundedUp)
         {
-            isGrounded = true;
+            if (!isGrounded)
+            {
+                isGrounded = true;
+                Vector2 direction = rb.velocity.normalized;
+                rb.AddForce(direction * cornerBugKiller, ForceMode2D.Impulse);
+                Debug.Log("UHHHHH " + direction * cornerBugKiller);
+
+            }
             if ((Input.GetKey("a") || Input.GetKey("d")) && !walkSounds.playing)
             {
                 walkSounds.Play(walkSoundDelay);
@@ -215,6 +223,8 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
         if (isGroundedDown)
         {
+            //Vector2 direction = rb.velocity.normalized;
+            //rb.AddForce(direction * cornerBugKiller, ForceMode2D.Impulse);
             yAxisMove = false;
             xAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -226,6 +236,8 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
         if (isGroundedUp)
         {
+            //Vector2 direction = rb.velocity.normalized;
+            //rb.AddForce(direction * cornerBugKiller, ForceMode2D.Impulse);
             yAxisMove = false;
             xAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 180);
@@ -237,6 +249,8 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
         if (isGroundedRight)
         {
+            //Vector2 direction = rb.velocity.normalized;
+            //rb.AddForce(direction * cornerBugKiller, ForceMode2D.Impulse);
             xAxisMove = false;
             yAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 90);
@@ -248,6 +262,8 @@ public class PlayerMovement2DPlatformer : MonoBehaviour
 
         if (isGroundedLeft)
         {
+            //Vector2 direction = rb.velocity.normalized;
+            //rb.AddForce(direction * cornerBugKiller, ForceMode2D.Impulse);
             xAxisMove = false;
             yAxisMove = true;
             spriteRenderer.transform.rotation = Quaternion.Euler(0, 0, 270);
