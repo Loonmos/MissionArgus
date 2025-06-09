@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,6 +28,10 @@ public class PlayerHealth : MonoBehaviour
     public float particleTime;
 
     public AllDialogue dialogue;
+
+    public List<Sprite> damagePics;
+    public List<AudioSource> damageSounds;
+    public Image damageImage;
 
     private void Awake()
     {
@@ -97,7 +103,30 @@ public class PlayerHealth : MonoBehaviour
             playerMovement.enabled = false;
             dialogue.ChaseFail();
         }
+        GlassCrack(currentHealth);
     }
+
+    public void GlassCrack(int currentHealth)
+    {
+        float stepSize = maxHealth / damagePics.Count + 1;
+        Debug.Log(stepSize);
+        for (int i = 0; i < damagePics.Count; i++)
+        {
+            if (currentHealth <= stepSize + (stepSize * i))
+            {
+                Sprite spriteToChange = damagePics[damagePics.Count - 1 - i];
+                if (damageImage.sprite != spriteToChange || !damageImage.gameObject.activeSelf)
+                {
+                    damageImage.gameObject.SetActive(true);
+                    damageImage.sprite = spriteToChange;
+                    damageSounds[damagePics.Count - 1 - i].Play();
+                }
+                return;
+            }
+        }
+        damageImage.gameObject.SetActive(false);
+    }
+
 
     public void AddHealth(int health)
     {

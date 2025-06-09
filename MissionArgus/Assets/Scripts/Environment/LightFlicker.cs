@@ -9,8 +9,8 @@ public class LightFlicker : MonoBehaviour
     public GameObject lightOn, lightOff;
     public Sprite spriteOn, spriteOff;
     public SpriteRenderer sr;
-    
-    void Start()
+
+    void OnEnable()
     {
         lightFlicker = GetComponent<Light2D>();
         //lightSprite = GetComponent<SpriteRenderer>();
@@ -31,7 +31,7 @@ public class LightFlicker : MonoBehaviour
             if (spriteOff != null)
             {
                 Debug.Log("THIS IS BEING CALLED!!!!! BY " + gameObject.name);
-                sr.sprite = spriteOff;  
+                sr.sprite = spriteOff;
             }
             if (lightOff != null) lightOff.SetActive(true);
             if (lightOn != null) lightOn.SetActive(false);
