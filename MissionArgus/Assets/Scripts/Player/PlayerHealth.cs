@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
     public List<Sprite> damagePics;
     public List<AudioSource> damageSounds;
     public Image damageImage;
+    public GameObject deathAnim;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         healthbar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
 
+        deathAnim.SetActive(false);
         deathScreen.SetActive(false);
 
         Time.timeScale = 1f;
@@ -108,6 +110,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void GlassCrack(int currentHealth)
     {
+        if (currentHealth == maxHealth)
+        {
+            damageImage.gameObject.SetActive(false);
+            return;
+        }
         float stepSize = maxHealth / damagePics.Count + 1;
         Debug.Log(stepSize);
         for (int i = 0; i < damagePics.Count; i++)
@@ -133,6 +140,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += health;
         healthbar.SetHealth(currentHealth);
         animPart.Play("Ability");
+        GlassCrack(currentHealth);
     }
 
     void HitAnim()
@@ -174,7 +182,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (isDead)
         {
-            deathScreen.SetActive(true);
+            StartCoroutine(deathSequence());
         }
     }
 
@@ -185,8 +193,17 @@ public class PlayerHealth : MonoBehaviour
         animPlayer.Play("Idle");
         playerMovement.enabled = true;
         currentHealth = 100;
+        GlassCrack(currentHealth);
+        deathAnim.SetActive(false);
         deathScreen.SetActive(false);
         saveLoad.LoadPosition();
         Debug.Log("RESET AFTER DEATH CALLED!!!!!!!!!");
+    }
+
+    IEnumerator deathSequence()
+    {
+        deathAnim.SetActive(true);
+        yield return new WaitForSeconds(2);
+        deathScreen.SetActive(true);
     }
 }
