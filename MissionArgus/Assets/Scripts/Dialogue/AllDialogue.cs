@@ -1004,6 +1004,7 @@ public class AllDialogue : MonoBehaviour
 
     public void TriggerEscapePod()
     {
+        mossterEndBit.Stop();
         state = State.Pod1;
     }
 

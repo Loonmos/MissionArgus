@@ -158,7 +158,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= health;
         healthbar.SetHealth(currentHealth);
         animPart.Play("Ability");
-        GlassCrack(currentHealth);
+        damageImage.gameObject.SetActive(false);
     }
 
     void HitAnim()
