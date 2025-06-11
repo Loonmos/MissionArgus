@@ -963,6 +963,7 @@ public class AllDialogue : MonoBehaviour
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
             cooldown = 0;
+            triggerEndChase.SetActive(false);
             state = State.Nothing;
         }
     }
