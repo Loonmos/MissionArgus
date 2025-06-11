@@ -17,11 +17,13 @@ public class GainAbility : MonoBehaviour
     public GameObject itemLight;
 
     public bool pickedUp;
+    public GameObject interact;
 
     void Start()
     {
         itemLight.SetActive(false);
         pickedUp = false;
+        interact.SetActive(false);
     }
 
     void Update()
@@ -32,10 +34,12 @@ public class GainAbility : MonoBehaviour
         if (playerDistance <= spriteChangeDistance && !pickedUp)
         {
             itemLight.SetActive(true);
+            interact.SetActive(true);
         }
         else if (playerDistance >= spriteChangeDistance && !pickedUp)
         {
             itemLight.SetActive(false);
+            interact.SetActive(false);
         }
 
         if (playerDistance <= spriteChangeDistance && Input.GetKeyDown(KeyCode.E))
@@ -46,6 +50,7 @@ public class GainAbility : MonoBehaviour
             boots.SetActive(false);
             particles.SetActive(false);
             itemLight.SetActive(false);
+            interact.SetActive(false);
             anim.Play("Ability");
             dialogue.ActivateJumpText();
             inInventory = true;

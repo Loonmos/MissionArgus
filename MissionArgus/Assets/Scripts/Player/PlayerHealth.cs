@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     public Animator animPart;
 
     public int maxHealth = 100;
+    public int minHealth = 0;
     public int currentHealth;
     private float animDelay = 0.2f;
     public float animTime;
@@ -44,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.enabled = true;
 
         healthbar.SetMaxHealth(maxHealth);
-        currentHealth = maxHealth;
+        currentHealth = minHealth;
 
         deathAnim.SetActive(false);
         deathScreen.SetActive(false);
@@ -54,20 +55,20 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth >= 100)
+        if (currentHealth <= minHealth)
         {
-            currentHealth = 100;
+            currentHealth = minHealth;
             healthbar.SetHealth(currentHealth);
         }
 
-        if (currentHealth > 0)
+        if (currentHealth < maxHealth)
         {
             deathScreen.SetActive(false);
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth >= maxHealth)
         {
-            currentHealth = 0;
+            currentHealth = maxHealth;
             healthbar.SetHealth(currentHealth);
         }
 
@@ -91,10 +92,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentHealth += damage;
         healthbar.SetHealth(currentHealth);
 
-        if (currentHealth > 0)
+        if (currentHealth < maxHealth)
         {
 
         }
@@ -118,13 +119,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void GlassCrack(int currentHealth)
     {
-        if (currentHealth == maxHealth)
+        if (currentHealth == minHealth)
         {
             damageImage.gameObject.SetActive(false);
             return;
         }
+
+        //if (currentHealth == maxHealth)
+        //{
+        //    Sprite spriteToChange = damagePics[6];
+        //    return;
+        //}
+
         float stepSize = maxHealth / damagePics.Count + 1;
         Debug.Log(stepSize);
+
         for (int i = 0; i < damagePics.Count; i++)
         {
             if (currentHealth <= stepSize + (stepSize * i))
@@ -139,13 +148,14 @@ public class PlayerHealth : MonoBehaviour
                 return;
             }
         }
+
         damageImage.gameObject.SetActive(false);
     }
 
 
     public void AddHealth(int health)
     {
-        currentHealth += health;
+        currentHealth -= health;
         healthbar.SetHealth(currentHealth);
         animPart.Play("Ability");
         GlassCrack(currentHealth);
@@ -178,7 +188,7 @@ public class PlayerHealth : MonoBehaviour
         playerSprite.SetActive(true);
         playerMovement.enabled = true;
         saveLoad.LoadPosition();
-        currentHealth = 100;
+        currentHealth = minHealth;
         GlassCrack(currentHealth);
         isDead = false;
     }
@@ -205,7 +215,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = false;
         animPlayer.Play("Idle");
         playerMovement.enabled = true;
-        currentHealth = 100;
+        currentHealth = minHealth;
         GlassCrack(currentHealth);
         deathAnim.SetActive(false);
         deathScreen.SetActive(false);
@@ -223,7 +233,7 @@ public class PlayerHealth : MonoBehaviour
         animPlayer.Play("Idle");
         playerMovement.enabled = true;
         saveLoad.LoadPosition();
-        currentHealth = 100;
+        currentHealth = minHealth;
         GlassCrack(currentHealth);
         isDead = false;
     }

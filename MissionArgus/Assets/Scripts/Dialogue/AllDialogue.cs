@@ -910,8 +910,6 @@ public class AllDialogue : MonoBehaviour
         screenPlayer.SetActive(true);
         textPlayer.SetText("What the fuck Mark?");
 
-        mossterEndBit.Play();
-
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
             cooldown = 0;
@@ -959,6 +957,7 @@ public class AllDialogue : MonoBehaviour
         screenPlayer.SetActive(true);
         textPlayer.SetText("Shit... Wait is that a keycard?");
 
+        mossterEndBit.Play();
         blueCard.SetActive(true);
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
@@ -972,6 +971,9 @@ public class AllDialogue : MonoBehaviour
     {
         isChasing = false;
         playerHealth.ObstacleDeath();
+
+        Timer waitForDeath = Timer.Register(2, ChaseFail2);
+
         chaseTimeline.Stop();
         mossterEndBit.Stop();
         chaseTimer.Cancel();
@@ -981,6 +983,10 @@ public class AllDialogue : MonoBehaviour
         mark.transform.DOMove(markPosEvent2.position, 0.1f);
         finishedDialogue3 = true;
         triggerMark3.SetActive(false);
+    }
+
+    private void ChaseFail2()
+    {
         state = State.Mark3d1;
     }
 
