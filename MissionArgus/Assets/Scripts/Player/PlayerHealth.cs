@@ -71,15 +71,22 @@ public class PlayerHealth : MonoBehaviour
             healthbar.SetHealth(currentHealth);
         }
 
-        if (deathScreen.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.R) && !dialogue.isChasing)
         {
-            //Debug.Log("deathScreen is active in hierarchy");
+            isDead = true;
+            rb.velocity = new Vector2(0, 0);
+            playerMovement.enabled = false;
+            GlassCrack(currentHealth);
+            ObstacleDeath();
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.R) && dialogue.isChasing)
         {
-            //Debug.Log("deathScreen is not active in hierarchy");
+            isDead = true;
+            rb.velocity = new Vector2(0, 0);
+            playerMovement.enabled = false;
+            GlassCrack(currentHealth);
+            dialogue.ChaseFail();
         }
-
     }
 
     public void TakeDamage(int damage)
@@ -105,6 +112,7 @@ public class PlayerHealth : MonoBehaviour
             playerMovement.enabled = false;
             dialogue.ChaseFail();
         }
+        
         GlassCrack(currentHealth);
     }
 
@@ -160,13 +168,18 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.rb.velocity = new Vector2(0, 0);
         playerMovement.enabled = false;
 
-        yield return new WaitForSeconds(particleTime);
+        //yield return new WaitForSeconds(particleTime);
 
+        deathAnim.SetActive(true);
+        yield return new WaitForSeconds(2);
+
+        deathAnim.SetActive(false);
         animPart.SetBool("obsDeath", false);
         playerSprite.SetActive(true);
         playerMovement.enabled = true;
         saveLoad.LoadPosition();
         currentHealth = 100;
+        GlassCrack(currentHealth);
         isDead = false;
     }
 
@@ -204,6 +217,14 @@ public class PlayerHealth : MonoBehaviour
     {
         deathAnim.SetActive(true);
         yield return new WaitForSeconds(2);
-        deathScreen.SetActive(true);
+
+        deathAnim.SetActive(false);
+        playerSprite.SetActive(true);
+        animPlayer.Play("Idle");
+        playerMovement.enabled = true;
+        saveLoad.LoadPosition();
+        currentHealth = 100;
+        GlassCrack(currentHealth);
+        isDead = false;
     }
 }

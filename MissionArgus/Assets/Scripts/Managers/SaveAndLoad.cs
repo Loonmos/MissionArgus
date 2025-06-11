@@ -6,8 +6,6 @@ public class SaveAndLoad : MonoBehaviour
 {
     [SerializeField] private Transform lastPosition;
     public Transform player;
-
-    public PlayerHealth playerHealth;
     
     void Start()
     {
@@ -17,10 +15,7 @@ public class SaveAndLoad : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            playerHealth.ObstacleDeath();
-        }
+        
     }
 
     public void SavePosition(Transform position)

@@ -592,7 +592,7 @@ public class AllDialogue : MonoBehaviour
         animPlayer.SetBool("Walking", false);
         screenMark.SetActive(true);
         screenPlayer.SetActive(false);
-        textMark.SetText("Go to storage and find the wires needed to fix the computer. The sooner it's done, the faster we can go.");
+        textMark.SetText("Go to storage and find the <b>two</b> wires needed to fix the computer. The sooner it's done, the faster we can go.");
 
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
@@ -807,6 +807,8 @@ public class AllDialogue : MonoBehaviour
         screenPlayer.SetActive(false);
         textMark.SetText("You got the wires? You're a legend, bud!");
 
+        chaseEnemy.SetActive(false);
+
         if (cooldown >= textTime || Input.GetKeyDown(KeyCode.E))
         {
             cooldown = 0;
@@ -839,9 +841,9 @@ public class AllDialogue : MonoBehaviour
         animPlayer.SetBool("Walking", false);
         screenMark.SetActive(true);
         screenPlayer.SetActive(false);
-        textMark.SetText("OH FUCK RUN!!!");
+        textMark.SetText("OH FUCK RUN! FOLLOW ME!");
 
-        if (cooldown >= 1)
+        if (cooldown >= 2)
         {
             cooldown = 0;
             ActivateChase();
